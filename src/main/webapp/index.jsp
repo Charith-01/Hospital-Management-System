@@ -24,13 +24,13 @@
 
             <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">
+                <a href="index.jsp" class="text-gray-700 hover:text-blue-600 transition">
                     <i class="fas fa-home mr-1"></i> Home
                 </a>
                 <a href="#" class="text-gray-700 hover:text-blue-600 transition">
                     <i class="fas fa-user-md mr-1"></i> Clinics
                 </a>
-                <a href="appoinment.html" class="text-gray-700 hover:text-blue-600 transition">
+                <a href="appoinment.jsp" class="text-gray-700 hover:text-blue-600 transition">
                     <i class="fas fa-briefcase-medical mr-1"></i> Appoinments
                 </a>
                 <a href="#" class="text-gray-700 hover:text-blue-600 transition">
@@ -59,9 +59,9 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-6 shadow-md">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-home mr-1"></i> Home</a>
+            <a href="index.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-home mr-1"></i> Home</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-user-md mr-1"></i> Clinics</a>
-            <a href="appoinment.html" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-briefcase-medical mr-1"></i> Appoinment</a>
+            <a href="appoinment.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-briefcase-medical mr-1"></i> Appoinment</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-info-circle mr-1"></i> About Us</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
             <a href="#" class="block py-2 text-blue-600 border border-blue-600 rounded-lg text-center mt-2 hover:bg-blue-600 hover:text-white transition"><i class="fas fa-sign-in-alt mr-1"></i> Login</a>
