@@ -31,7 +31,7 @@
                     <i class="fas fa-user-md mr-1"></i> Clinics
                 </a>
                 <a href="appoinment.jsp" class="text-gray-700 hover:text-blue-600 transition">
-                    <i class="fas fa-briefcase-medical mr-1"></i> Appoinments
+                    <i class="fas fa-calendar-alt mr-2"></i> Appoinments
                 </a>
                 <a href="#" class="text-gray-700 hover:text-blue-600 transition">
                     <i class="fas fa-info-circle mr-1"></i> About Us
@@ -61,7 +61,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-6 shadow-md">
             <a href="index.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-home mr-1"></i> Home</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-user-md mr-1"></i> Clinics</a>
-            <a href="appoinment.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-briefcase-medical mr-1"></i> Appoinment</a>
+            <a href="appoinment.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-calendar-alt mr-2"></i> Appoinment</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-info-circle mr-1"></i> About Us</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
             <a href="#" class="block py-2 text-blue-600 border border-blue-600 rounded-lg text-center mt-2 hover:bg-blue-600 hover:text-white transition"><i class="fas fa-sign-in-alt mr-1"></i> Login</a>
@@ -84,7 +84,7 @@
     
                     <!-- Slide 1 -->
                     <div class="swiper-slide relative w-full h-full">
-                        <img src="Hospital-Management-System/src/main/webapp/assets/hero1.jpg" alt="Hospital" class="w-full h-full object-cover">
+                        <img src="assets/hero1.jpg" alt="Hospital" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Your Health, Our Priority</h1>
                             <p class="text-lg md:text-xl mt-4">Providing world-class healthcare services with compassion and expertise.</p>
@@ -96,7 +96,7 @@
     
                     <!-- Slide 2 -->
                     <div class="swiper-slide relative w-full h-full">
-                        <img src="1.jpg" alt="Doctor" class="w-full h-full object-cover">
+                        <img src="assets/hero2.jpg" alt="Doctor" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Advanced Medical Care</h1>
                             <p class="text-lg md:text-xl mt-4">Bringing you the latest in medical technology and expert care.</p>
@@ -108,7 +108,7 @@
     
                     <!-- Slide 3 -->
                     <div class="swiper-slide relative w-full h-full">
-                        <img src="2.jpg" alt="Medical Team" class="w-full h-full object-cover">
+                        <img src="assets/hero3.jpg" alt="Medical Team" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Caring for Every Life</h1>
                             <p class="text-lg md:text-xl mt-4">Dedicated healthcare professionals committed to your well-being.</p>
@@ -155,7 +155,7 @@
             
             <!-- Image Section -->
             <div class="md:w-1/2">
-                <img src="about.jpg" alt="About Us" class="w-full rounded-lg shadow-lg">
+                <img src="assets/about.jpg" alt="About Us" class="w-full rounded-lg shadow-lg">
             </div>
 
             <!-- Content Section -->
