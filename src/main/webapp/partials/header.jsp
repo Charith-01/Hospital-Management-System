@@ -43,10 +43,10 @@
 
             <!-- Login / Register Button -->
             <div class="hidden md:flex space-x-4">
-                <a href="#" class="px-4 py-2 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition">
+                <a href="login.jsp" class="px-4 py-2 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition">
                     <i class="fas fa-sign-in-alt mr-1"></i> Login
                 </a>
-                <a href="#" class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg shadow hover:bg-blue-600 hover:text-white transition">
+                <a href="registration.jsp" class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg shadow hover:bg-blue-600 hover:text-white transition">
                     <i class="fas fa-user-plus mr-1"></i> Register
                 </a>
             </div>

@@ -47,7 +47,8 @@
       <!-- Register Redirect -->
       <p class="text-center text-gray-600 mt-4">
         Don't have an account?
-        <a href="register.html" class="text-blue-600 hover:underline">Register here</a>
+        <a href="registration.jsp" class="text-blue-600 hover:underline">Register here</a><br>
+        <a href="index.jsp" class="text-blue-600 hover:underline">Continue as guest</a>
       </p>
     </form>
   </div>
