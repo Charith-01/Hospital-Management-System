@@ -1,5 +1,7 @@
 package com.suwani.model;
 
+import java.time.LocalDate;
+
 public class User {
 
 	int userid;
@@ -8,10 +10,18 @@ public class User {
 	String phone;
 	String address;
 	String gender;
+	LocalDate dob;
 	String bloodgroup;
 	String medicalcon;
 	String password;
 	String conpassword;
+	
+	public LocalDate getDob() {
+		return dob;
+	}
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
 	
 	public int getUserid() {
 		return userid;

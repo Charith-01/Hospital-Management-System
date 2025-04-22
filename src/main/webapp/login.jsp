@@ -14,7 +14,7 @@
   <div class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md">
     <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Login to Suwani</h2>
 
-    <form action="login.php" method="POST" class="space-y-6">
+    <form action="LoginUser" method="POST" class="space-y-6">
 
       <!-- Email -->
       <div>
