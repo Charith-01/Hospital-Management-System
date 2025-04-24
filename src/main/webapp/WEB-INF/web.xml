@@ -61,4 +61,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>AdminUsers</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminUsers</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AdminUsers</servlet-name>
+	<url-pattern>/adminusers</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 

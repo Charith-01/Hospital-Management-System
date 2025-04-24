@@ -1,6 +1,7 @@
 package com.suwani.service;
 
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.sql.Date; // Import java.sql.Date for date handling
 import java.sql.ResultSet;
 
@@ -68,6 +69,7 @@ public class UserService {
     		
     		if(rs.next()) {
     			
+    			u2.setUserid(rs.getInt("id"));
     			u2.setFullname(rs.getString("fullname"));
     			u2.setEmail(rs.getString("email"));
     			u2.setPhone(rs.getString("phone"));
@@ -87,5 +89,35 @@ public class UserService {
     	
     	return null;
     }
+    
+    public ArrayList<User> getAllUser(){
+        ArrayList<User> listuser = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM users";
+            Statement stmt = DBconnect.getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while(rs.next()) {
+                User u2 = new User();
+
+                u2.setUserid(rs.getInt("id"));
+                u2.setFullname(rs.getString("fullname"));
+                u2.setEmail(rs.getString("email"));
+                u2.setPhone(rs.getString("phone"));
+                u2.setGender(rs.getString("gender"));
+                u2.setDob(rs.getDate("dob").toLocalDate());
+                u2.setRole(rs.getString("role"));
+
+                listuser.add(u2);
+            }
+
+            return listuser;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
 

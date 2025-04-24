@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="./partials/adminheader.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.ArrayList" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,21 @@
             </tr>
           </thead>
           <tbody class="text-center text-gray-700">
-            <!-- Dynamic user rows will be inserted here -->
+            <c:forEach var="user" items="${user}">
+            	<tr>
+            		<td>${user.userid}</td>
+            		<td>${user.fullname}</td>
+            		<td>${user.email}</td>
+            		<td>${user.phone}</td>
+            		<td>${user.gender}</td>
+            		<td>${user.dob}</td>
+            		<td>${user.role}</td>
+            		<td>
+					  <a href="#" class="text-blue-600 hover:underline mr-2">Edit</a>
+					  <a href="#" class="text-red-600 hover:underline">Delete</a>
+					</td>
+            	</tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>

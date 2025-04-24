@@ -29,6 +29,7 @@
             <i class="fas fa-user-circle"></i>
           </div>
           <h1 class="mt-4 text-2xl font-semibold text-gray-800"><c:out value="${user.fullname}"/></h1>
+          <p class="text-gray-500 text-sm">Patient ID: <c:out value="${user.userid}"/></p>
         </div>
 
         <!-- Profile Info -->

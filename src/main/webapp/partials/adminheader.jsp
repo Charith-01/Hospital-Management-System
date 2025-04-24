@@ -17,9 +17,12 @@
             <a href="adminDashboard.jsp"><i class="fas fa-user-shield mr-2"></i> Admin Panel</a>
         </div>
         <nav class="flex-1 px-4 py-6 space-y-3">
-            <a href="userView.jsp" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
-                <i class="fas fa-users mr-3 text-blue-600"></i> Users
-            </a>
+            <!-- Form for submitting to the UserListServlet -->
+            <form action="AdminUsers" method="POST">
+                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition w-full">
+                    <i class="fas fa-users mr-3 text-blue-600"></i> Users
+                </button>
+            </form>
             <a href="#" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
                 <i class="fas fa-user-md mr-3 text-green-600"></i> Doctors
             </a>
@@ -36,3 +39,5 @@
             </a>
         </div>
     </aside>
+</body>
+</html>
