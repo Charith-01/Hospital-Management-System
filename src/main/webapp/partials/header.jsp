@@ -34,7 +34,7 @@
 
         <div class="hidden md:flex space-x-4">
             <% if (isLoggedIn) { %>
-                <span class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i><%= user.getEmail() %></span>
+                <a href="userprofile.jsp"><span class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i><%= user.getEmail() %></span></a>
                 <a href="Logout" class="px-4 py-2 text-white bg-red-600 rounded-lg shadow hover:bg-red-700 transition">
                     <i class="fas fa-sign-out-alt mr-1"></i> Logout
                 </a>
