@@ -43,6 +43,7 @@ public class UserService {
     		
     		if(rs.next()) {
     			
+    			u1.setRole(rs.getString("role")); // Set role
     			return true;
     		}
     		
@@ -52,6 +53,39 @@ public class UserService {
     	}
     	
     	return false;
+    }
+    
+    
+    public User getOne(User u2) {
+    	
+    	try {
+    		
+    		String query = "SELECT * FROM users WHERE email = '"+u2.getEmail()+"' AND password = '"+u2.getPassword()+"'";
+    		
+    		Statement stmt = DBconnect.getConnection().createStatement();
+    		
+    		ResultSet rs = stmt.executeQuery(query);
+    		
+    		if(rs.next()) {
+    			
+    			u2.setFullname(rs.getString("fullname"));
+    			u2.setEmail(rs.getString("email"));
+    			u2.setPhone(rs.getString("phone"));
+    			u2.setAddress(rs.getString("address"));
+    			u2.setGender(rs.getString("gender"));
+    			u2.setDob(rs.getDate("dob").toLocalDate());
+    			u2.setBloodgroup(rs.getString("bloodgroup"));
+    			u2.setMedicalcon(rs.getString("medicalcon"));
+    			
+    			return u2;
+    		}
+    		
+    	}catch(Exception e) {
+    		
+    		e.printStackTrace();
+    	}
+    	
+    	return null;
     }
 }
 

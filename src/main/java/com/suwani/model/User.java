@@ -15,6 +15,7 @@ public class User {
 	String medicalcon;
 	String password;
 	String conpassword;
+	String role;
 	
 	public LocalDate getDob() {
 		return dob;
@@ -53,6 +54,9 @@ public class User {
 	public String getConpassword() {
 		return conpassword;
 	}
+	public String getRole() {
+		return role;
+	}
 	
 	public void setUserid(int userid) {
 		this.userid = userid;
@@ -83,5 +87,8 @@ public class User {
 	}
 	public void setConpassword(String conpassword) {
 		this.conpassword = conpassword;
+	}
+	public void setRole(String role) {
+		this.role=role;
 	}
 }

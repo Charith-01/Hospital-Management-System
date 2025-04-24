@@ -5,7 +5,7 @@
 <servlet>
 
 	<servlet-name>AddUser</servlet-name>
-	<servlet-class>servlet.AddUser</servlet-class>
+	<servlet-class>com.suwani.servlet.AddUser</servlet-class>
 
 </servlet>
 
@@ -20,7 +20,7 @@
 <servlet>
 
 	<servlet-name>LoginUser</servlet-name>
-	<servlet-class>servlet.LoginUser</servlet-class>
+	<servlet-class>com.suwani.servlet.LoginUser</servlet-class>
 
 </servlet>
 
@@ -28,6 +28,36 @@
 
 	<servlet-name>LoginUser</servlet-name>
 	<url-pattern>/loginu</url-pattern>
+
+</servlet-mapping>
+
+
+<servlet>
+
+	<servlet-name>Logout</servlet-name>
+	<servlet-class>com.suwani.servlet.Logout</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>Logout</servlet-name>
+	<url-pattern>/logou</url-pattern>
+
+</servlet-mapping>
+
+
+<servlet>
+
+	<servlet-name>DashboardStats</servlet-name>
+	<servlet-class>com.suwani.servlet.DashboardStats</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>DashboardStats</servlet-name>
+	<url-pattern>/dashboardSt</url-pattern>
 
 </servlet-mapping>
 
