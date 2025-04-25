@@ -130,6 +130,29 @@ public class UserService {
             return null;
         }
     }
+    
+    public boolean updateUser(User u) {
+        try {
+            String query = "UPDATE users SET fullname=?, email=?, phone=?, address=?, gender=?, dob=?, bloodgroup=?, medicalcon=? WHERE id=?";
+            PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
+
+            stmt.setString(1, u.getFullname());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getPhone());
+            stmt.setString(4, u.getAddress());
+            stmt.setString(5, u.getGender());
+            stmt.setDate(6, java.sql.Date.valueOf(u.getDob()));
+            stmt.setString(7, u.getBloodgroup());
+            stmt.setString(8, u.getMedicalcon());
+            stmt.setInt(9, u.getUserid());
+
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
 

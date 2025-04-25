@@ -75,4 +75,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>UpdateUser</servlet-name>
+	<servlet-class>com.suwani.servlet.UpdateUser</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>UpdateUser</servlet-name>
+	<url-pattern>/updateuse</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
