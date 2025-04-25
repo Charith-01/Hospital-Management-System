@@ -34,10 +34,12 @@
 
         <div class="hidden md:flex space-x-4">
             <% if (isLoggedIn) { %>
-                <a href="userprofile.jsp"><span class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i><%= user.getEmail() %></span></a>
-                <a href="Logout" class="px-4 py-2 text-white bg-red-600 rounded-lg shadow hover:bg-red-700 transition">
-                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
-                </a>
+				<a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
+				    <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
+				</a>
+				<a href="Logout" class="px-4 py-2 text-white bg-red-600 rounded-lg shadow hover:bg-red-700 transition">
+				    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+				</a>
             <% } else { %>
                 <a href="login.jsp" class="px-4 py-2 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition">
                     <i class="fas fa-sign-in-alt mr-1"></i> Login
@@ -61,7 +63,9 @@
         <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-info-circle mr-1"></i> About Us</a>
         <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
         <% if (isLoggedIn) { %>
-            <span class="block py-2 text-gray-700 font-semibold"><i class="fas fa-user-circle mr-1"></i> <%= user.getEmail() %></span>
+            				<a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
+				    <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
+				</a>
             <a href="Logout" class="block py-2 text-white bg-red-600 rounded-lg text-center mt-2 hover:bg-red-700 transition">
                 <i class="fas fa-sign-out-alt mr-1"></i> Logout
             </a>
