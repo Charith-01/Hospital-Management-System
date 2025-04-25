@@ -2,6 +2,7 @@ package com.suwani.service;
 
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Connection;
 import java.sql.Date; // Import java.sql.Date for date handling
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -131,6 +132,7 @@ public class UserService {
         }
     }
     
+    //Update single user
     public boolean updateUser(User u) {
         try {
             String query = "UPDATE users SET fullname=?, email=?, phone=?, address=?, gender=?, dob=?, bloodgroup=?, medicalcon=? WHERE id=?";
@@ -152,6 +154,7 @@ public class UserService {
             return false;
         }
     }
+
 
 
 }
