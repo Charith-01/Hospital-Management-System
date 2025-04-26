@@ -42,10 +42,10 @@
             		<td>${user.dob}</td>
             		<td>${user.role}</td>
             		<td>
-					  <form action="AdminUpdateUser" method="POST">
-					    <input type="hidden" name="id" value="${user.userid}"/>
-					    <button type="submit" class="text-blue-600 hover:underline">Edit</button>
-					 </form>
+						<form action="AdminUpdateUsers" method="POST" style="display:inline;">
+						    <input type="hidden" name="id" value="${user.userid}" />
+						    <button type="submit" class="text-blue-600 hover:underline">Edit</button>
+						</form>
 					  <a href="#" class="text-red-600 hover:underline">Delete</a>
 					</td>
             	</tr>

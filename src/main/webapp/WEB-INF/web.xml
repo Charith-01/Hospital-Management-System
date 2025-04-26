@@ -91,15 +91,15 @@
 
 <servlet>
 
-	<servlet-name>AdminUpdateUser</servlet-name>
-	<servlet-class>com.suwani.servlet.AdminUpdateUser</servlet-class>
+	<servlet-name>AdminUpdateUsers</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminUpdateUsers</servlet-class>
 
 </servlet>
 
 <servlet-mapping>
 
-	<servlet-name>AdminUpdateUser</servlet-name>
-	<url-pattern>/adminupdateus</url-pattern>
+	<servlet-name>AdminUpdateUsers</servlet-name>
+	<url-pattern>/adminupdateusss</url-pattern>
 
 </servlet-mapping>
 

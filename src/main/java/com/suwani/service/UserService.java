@@ -155,5 +155,33 @@ public class UserService {
             return false;
         }
     }
+    
+    public User getUserById(int id) {
+        try {
+            String query = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setUserid(rs.getInt("id"));
+                user.setFullname(rs.getString("fullname"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setAddress(rs.getString("address"));
+                user.setGender(rs.getString("gender"));
+                user.setDob(rs.getDate("dob").toLocalDate());
+                user.setBloodgroup(rs.getString("bloodgroup"));
+                user.setMedicalcon(rs.getString("medicalcon"));
+                user.setRole(rs.getString("role"));
+                return user;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
 
