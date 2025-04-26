@@ -42,16 +42,8 @@
             		<td>${user.dob}</td>
             		<td>${user.role}</td>
             		<td>
-						<form action="adminedituser.jsp" method="POST" style="display:inline;">
-						    <input type="hidden" name="id" value="${user.userid}" />
-						    <input type="hidden" name="fullname" value="${user.fullname}" />
-						    <input type="hidden" name="email" value="${user.email}" />
-						    <input type="hidden" name="phone" value="${user.phone}" />
-						    <input type="hidden" name="gender" value="${user.gender}" />
-						    <input type="hidden" name="dob" value="${user.dob}" />
-						    
-						    <button type="submit" class="text-blue-600 hover:underline">Edit</button>
-						</form>
+						  
+					  <a href="adminedituser.jsp" class="text-blue-600 hover:underline">Edit</a>
 					  <a href="#" class="text-red-600 hover:underline">Delete</a>
 					</td>
             	</tr>

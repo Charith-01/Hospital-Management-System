@@ -184,24 +184,24 @@ public class UserService {
         return null;
     }
     
-    public boolean adminupdateUser(User u) {
+    public boolean adminupdateUser(User u2) {
         try {
-            String query = "UPDATE users SET fullname=?, email=?, phone=?, gender=?, dob=?, role=? WHERE id=?";
+            String query = "UPDATE users SET fullname=?, email=?, phone=?, gender=?, dob=? WHERE id=?";
             PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
 
-            stmt.setString(1, u.getFullname());
-            stmt.setString(2, u.getEmail());
-            stmt.setString(3, u.getPhone());
-            stmt.setString(4, u.getGender());
-            stmt.setDate(5, java.sql.Date.valueOf(u.getDob()));
-            stmt.setString(6, u.getRole());
-            stmt.setInt(7, u.getUserid());
+            stmt.setString(1, u2.getFullname());
+            stmt.setString(2, u2.getEmail());
+            stmt.setString(3, u2.getPhone());
+            stmt.setString(5, u2.getGender());
+            stmt.setDate(6, java.sql.Date.valueOf(u2.getDob()));
+            stmt.setInt(9, u2.getUserid());
 
             return stmt.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+
     }
 
 }

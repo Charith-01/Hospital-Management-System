@@ -1,13 +1,14 @@
 package com.suwani.servlet;
 
-import com.suwani.model.User;
-import com.suwani.service.UserService;
-
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 import java.io.IOException;
 import java.time.LocalDate;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+import com.suwani.model.User;
+import com.suwani.service.UserService;
 
 @WebServlet("/AdminUpdateUsers")
 public class AdminUpdateUsers extends HttpServlet {
@@ -21,13 +22,6 @@ public class AdminUpdateUsers extends HttpServlet {
         user.setPhone(request.getParameter("phone"));
         user.setGender(request.getParameter("gender"));
         user.setDob(LocalDate.parse(request.getParameter("dob")));
-        
-        System.out.println(user.getUserid());
-        System.out.println(user.getFullname());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPhone());
-        System.out.println(user.getGender());
-        System.out.println(user.getDob());
 
 
         UserService service = new UserService();

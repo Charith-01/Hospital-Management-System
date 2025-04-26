@@ -28,23 +28,23 @@
         <h2 class="text-2xl font-bold text-center mb-6 text-gray-700">Edit Profile</h2>
         
         <form action="AdminUpdateUsers" method="post">
-            <input type="hidden" name="id" value="${param.userid} "/>
+            <input type="hidden" name="id" value="<%= user.getUserid() %>"/>
 
             <div class="mb-4">
                 <label for="fullname" class="block text-gray-700 font-medium mb-2">Full Name:</label>
-                <input type="text" name="fullname" value="${param.fullname}" required 
+                <input type="text" name="fullname" value="<%= user.getFullname() %>" required
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             </div>
 
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
-                <input type="email" name="email" value="${param.email}" required 
+                <input type="email" name="email" value="<%= user.getEmail() %>" required 
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             </div>
 
             <div class="mb-4">
                 <label for="phone" class="block text-gray-700 font-medium mb-2">Phone:</label>
-                <input type="text" name="phone" value="${param.phone}" required 
+                <input type="text" name="phone" value="<%= user.getPhone() %>" required 
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             </div>
 
@@ -52,15 +52,15 @@
                 <label for="gender" class="block text-gray-700 font-medium mb-2">Gender:</label>
                 <select name="gender" 
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="${param.gender}" <%= "Male".equals(user.getGender()) ? "selected" : "" %>>Male</option>
-                    <option value="${param.gender}" <%= "Female".equals(user.getGender()) ? "selected" : "" %>>Female</option>
-                    <option value="${param.gender}" <%= "Other".equals(user.getGender()) ? "selected" : "" %>>Other</option>
+                    <option value="Male" <%= "Male".equals(user.getGender()) ? "selected" : "" %>>Male</option>
+                    <option value="Female" <%= "Female".equals(user.getGender()) ? "selected" : "" %>>Female</option>
+                    <option value="Other" <%= "Other".equals(user.getGender()) ? "selected" : "" %>>Other</option>
                 </select>
             </div>
 
             <div class="mb-4">
                 <label for="dob" class="block text-gray-700 font-medium mb-2">Date of Birth:</label>
-                <input type="date" name="dob" value="${param.dob}" required 
+                <input type="date" name="dob" value="<%= user.getDob() %>" required 
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             </div>
 
