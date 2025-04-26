@@ -155,29 +155,5 @@ public class UserService {
             return false;
         }
     }
-
-    public boolean AdminupdateUser(User user) throws ClassNotFoundException {
-        String sql = "UPDATE users SET fullname = ?, email = ?, phone = ?, gender = ?, dob = ?, role = ? WHERE id = ?";
-        
-        try (Connection conn = DBconnect.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            // Set the values for the placeholders in the SQL query
-            ps.setString(1, user.getFullname());
-            ps.setString(2, user.getEmail());
-            ps.setString(3, user.getPhone());
-            ps.setString(4, user.getGender());
-            ps.setDate(5, java.sql.Date.valueOf(user.getDob()));
-            ps.setString(6, user.getRole());
-            ps.setInt(7, user.getUserid()); // Assuming 'userid' is the id of the user
-            
-            // Execute the update and check the number of affected rows
-            int rowsAffected = ps.executeUpdate();
-            return rowsAffected > 0; // If at least one row was updated, return true
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }
 
