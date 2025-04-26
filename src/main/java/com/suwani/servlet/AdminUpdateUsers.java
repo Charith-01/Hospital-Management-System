@@ -11,48 +11,33 @@ import java.time.LocalDate;
 
 @WebServlet("/AdminUpdateUsers")
 public class AdminUpdateUsers extends HttpServlet {
-
-    private UserService userService = new UserService();
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Handle update
-        int id = Integer.parseInt(request.getParameter("id"));
-        String fullname = request.getParameter("fullname");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String gender = request.getParameter("gender");
-        String dob = request.getParameter("dob");
-        String bloodgroup = request.getParameter("bloodgroup");
-        String medicalcon = request.getParameter("medicalcon");
 
         User user = new User();
-        user.setUserid(id);
-        user.setFullname(fullname);
-        user.setEmail(email);
-        user.setPhone(phone);
-        user.setAddress(address);
-        user.setGender(gender);
-        user.setDob(LocalDate.parse(dob));
-        user.setBloodgroup(bloodgroup);
-        user.setMedicalcon(medicalcon);
 
-        boolean updated = userService.updateUser(user);
-        if (updated) {
+        user.setUserid(Integer.parseInt(request.getParameter("id")));
+        user.setFullname(request.getParameter("fullname"));
+        user.setEmail(request.getParameter("email"));
+        user.setPhone(request.getParameter("phone"));
+        user.setGender(request.getParameter("gender"));
+        user.setDob(LocalDate.parse(request.getParameter("dob")));
+        
+        System.out.println(user.getUserid());
+        System.out.println(user.getFullname());
+        System.out.println(user.getEmail());
+        System.out.println(user.getPhone());
+        System.out.println(user.getGender());
+        System.out.println(user.getDob());
+
+
+        UserService service = new UserService();
+        boolean result = service.adminupdateUser(user);
+
+        if (result) {
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("userView.jsp");
         } else {
-            request.setAttribute("error", "Update failed.");
-            request.getRequestDispatcher("adminedituser.jsp").forward(request, response);
+            response.sendRedirect("adminedituser.jsp?error=1");
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Show edit form
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.getUserById(id);
-        request.setAttribute("user", user);
-        request.getRequestDispatcher("adminedituser.jsp").forward(request, response);
     }
 }

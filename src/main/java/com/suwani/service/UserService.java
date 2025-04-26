@@ -174,6 +174,7 @@ public class UserService {
                 user.setDob(rs.getDate("dob").toLocalDate());
                 user.setBloodgroup(rs.getString("bloodgroup"));
                 user.setMedicalcon(rs.getString("medicalcon"));
+                user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
                 return user;
             }
@@ -181,6 +182,26 @@ public class UserService {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean adminupdateUser(User u) {
+        try {
+            String query = "UPDATE users SET fullname=?, email=?, phone=?, gender=?, dob=?, role=? WHERE id=?";
+            PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
+
+            stmt.setString(1, u.getFullname());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getPhone());
+            stmt.setString(4, u.getGender());
+            stmt.setDate(5, java.sql.Date.valueOf(u.getDob()));
+            stmt.setString(6, u.getRole());
+            stmt.setInt(7, u.getUserid());
+
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }
