@@ -217,6 +217,19 @@ public class UserService {
 			e.printStackTrace();
 		}
     }
+    
+    public void deleteuserprofile(User user) {
+    	try {
+			
+    		String query = "DELETE FROM users WHERE id = '"+user.getUserid()+"'";
+    		
+    		Statement stmt = DBconnect.getConnection().createStatement();
+    		stmt.executeUpdate(query);
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 
 }
 

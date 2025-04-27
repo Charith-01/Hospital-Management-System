@@ -50,7 +50,7 @@
             <a href="editprofile.jsp" class="flex items-center justify-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
               <i class="fas fa-edit"></i> Edit Profile
             </a>
-			<form action="DeleteUser" method="POST" onsubmit="return confirmDelete();">
+			<form action="DeleteUserProfile" method="POST" onsubmit="return confirmDelete();">
 				<input type="hidden" name="id" value="${user.userid}">
 			    <button type="submit" class="flex items-center justify-center gap-2 px-6 py-2 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition">
 			    <i class="fas fa-trash-alt"></i> Delete Profile
