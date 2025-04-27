@@ -3,6 +3,7 @@ package com.suwani.servlet;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -20,6 +21,7 @@ public class AdminUpdateUsers extends HttpServlet {
         user.setFullname(request.getParameter("fullname"));
         user.setEmail(request.getParameter("email"));
         user.setPhone(request.getParameter("phone"));
+        user.setAddress(request.getParameter("address"));
         user.setGender(request.getParameter("gender"));
         user.setDob(LocalDate.parse(request.getParameter("dob")));
 
@@ -29,7 +31,8 @@ public class AdminUpdateUsers extends HttpServlet {
 
         if (result) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("userView.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("AdminUsers");
+            dispatcher.forward(request, response);
         } else {
             response.sendRedirect("adminedituser.jsp?error=1");
         }

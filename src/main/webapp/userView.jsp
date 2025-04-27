@@ -25,6 +25,7 @@
               <th class="px-4 py-3">Full Name</th>
               <th class="px-4 py-3">Email</th>
               <th class="px-4 py-3">Phone</th>
+              <th class="px-4 py-3">Address</th>
               <th class="px-4 py-3">Gender</th>
               <th class="px-4 py-3">DOB</th>
               <th class="px-4 py-3">Role</th>
@@ -38,12 +39,23 @@
             		<td>${user.fullname}</td>
             		<td>${user.email}</td>
             		<td>${user.phone}</td>
+            		<td>${user.address}</td>
             		<td>${user.gender}</td>
             		<td>${user.dob}</td>
             		<td>${user.role}</td>
             		<td>
-						  
-					  <a href="adminedituser.jsp" class="text-blue-600 hover:underline">Edit</a>
+						
+					
+					  <form action="adminedituser.jsp" method="post">
+					  	<input type="hidden" name="id" value="${user.userid}">
+					  	<input type="hidden" name="fullname" value="${user.fullname}">
+					  	<input type="hidden" name="email" value="${user.email}">
+					  	<input type="hidden" name="phone" value="${user.phone}">
+					  	<input type="hidden" name="address" value="${user.address}">
+					  	<input type="hidden" name="gender" value="${user.gender}">
+					  	<input type="hidden" name="dob" value="${user.dob}">
+					  	<input type="submit" value="Edit" class="text-blue-600 hover:underline">
+					  </form>  
 					  <a href="#" class="text-red-600 hover:underline">Delete</a>
 					</td>
             	</tr>
