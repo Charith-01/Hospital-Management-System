@@ -103,4 +103,32 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>DeleteUser</servlet-name>
+	<servlet-class>com.suwani.servlet.DeleteUser</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>DeleteUser</servlet-name>
+	<url-pattern>/deleteuse</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>AdminDeleteUser</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminDeleteUser</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AdminDeleteUser</servlet-name>
+	<url-pattern>/admindeleteuse</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 

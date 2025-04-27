@@ -50,9 +50,12 @@
             <a href="editprofile.jsp" class="flex items-center justify-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
               <i class="fas fa-edit"></i> Edit Profile
             </a>
-            <button onclick="confirmDelete()" class="flex items-center justify-center gap-2 px-6 py-2 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition">
-              <i class="fas fa-trash-alt"></i> Delete Profile
-            </button>
+			<form action="DeleteUser" method="POST" onsubmit="return confirmDelete();">
+				<input type="hidden" name="id" value="${user.userid}">
+			    <button type="submit" class="flex items-center justify-center gap-2 px-6 py-2 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition">
+			    <i class="fas fa-trash-alt"></i> Delete Profile
+			  </button>
+			</form>
           </div>
         </div>
       </div>
@@ -60,13 +63,11 @@
   </main>
 
   <!-- Confirmation Script -->
-  <script>
-    function confirmDelete() {
-      if (confirm("Are you sure you want to delete your profile? This action is irreversible.")) {
-        window.location.href = "deleteprofile.jsp"; // Add your backend logic
+    <script>
+      function confirmDelete() {
+        return confirm("Are you sure you want to delete this user?");
       }
-    }
-  </script>
+    </script>
 
 </body>
 </html>

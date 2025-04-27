@@ -196,8 +196,6 @@ public class UserService {
             stmt.setString(4, u2.getAddress());
             stmt.setDate(5, java.sql.Date.valueOf(u2.getDob()));
             stmt.setInt(6, u2.getUserid());
-            
-            System.out.println(u2.getFullname());
 
             return stmt.executeUpdate() > 0;
         } catch (Exception e) {
@@ -205,6 +203,19 @@ public class UserService {
             return false;
         }
 
+    }
+    
+    public void deleteuser(User u) {
+    	try {
+			
+    		String query = "DELETE FROM users WHERE id = '"+u.getUserid()+"'";
+    		
+    		Statement stmt = DBconnect.getConnection().createStatement();
+    		stmt.executeUpdate(query);
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
 }
