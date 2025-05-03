@@ -131,4 +131,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>AddDoctor</servlet-name>
+	<servlet-class>com.suwani.servlet.AddDoctor</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AddDoctor</servlet-name>
+	<url-pattern>/adddoc</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 

@@ -55,29 +55,46 @@
                     <textarea name="address" class="w-full border border-gray-300 p-3 rounded" rows="2"></textarea>
                 </div>
 
-                <!-- Specialization & Experience -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block font-medium">Specialization</label>
-                        <input type="text" name="specialization" class="w-full border border-gray-300 p-3 rounded">
-                    </div>
-                    <div>
-                        <label class="block font-medium">Years of Experience</label>
-                        <input type="text" name="experience_years" class="w-full border border-gray-300 p-3 rounded">
-                    </div>
-                </div>
+				<!-- Specialization & Experience -->
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				    <div>
+				        <label class="block font-medium">Specialization</label>
+				        <select name="specialization" class="w-full border border-gray-300 p-3 rounded">
+				            <option value="">Select Specialization</option>
+				            <option>Cardiology</option>
+				            <option>Neurology</option>
+				            <option>Orthopedics</option>
+				            <option>Pediatrics</option>
+				            <option>Dermatology</option>
+				            <option>General Surgery</option>
+				            <option>Psychiatry</option>
+				        </select>
+				    </div>
+				    <div>
+				        <label class="block font-medium">Years of Experience</label>
+				        <input type="text" name="experience_years" class="w-full border border-gray-300 p-3 rounded">
+				    </div>
+				</div>
 
-                <!-- License Number & Department -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block font-medium">Medical License Number</label>
-                        <input type="text" name="license_number" class="w-full border border-gray-300 p-3 rounded">
-                    </div>
-                    <div>
-                        <label class="block font-medium">Department</label>
-                        <input type="text" name="department" class="w-full border border-gray-300 p-3 rounded">
-                    </div>
-                </div>
+				<!-- License Number & Department -->
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				    <div>
+				        <label class="block font-medium">Medical License Number</label>
+				        <input type="text" name="license_number" class="w-full border border-gray-300 p-3 rounded">
+				    </div>
+				    <div>
+				        <label class="block font-medium">Department</label>
+				        <select name="department" class="w-full border border-gray-300 p-3 rounded">
+				            <option value="">Select Department</option>
+				            <option>Emergency</option>
+				            <option>Outpatient</option>
+				            <option>Radiology</option>
+				            <option>ICU</option>
+				            <option>Laboratory</option>
+				            <option>Pharmacy</option>
+				        </select>
+				    </div>
+				</div>
 
                 <!-- Submit Button -->
                 <div class="text-center">

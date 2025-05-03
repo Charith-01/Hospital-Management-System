@@ -1,6 +1,7 @@
 package com.suwani.service;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.suwani.model.Doctor;
 import com.suwani.util.DBconnect;
@@ -26,9 +27,24 @@ public class DoctorService {
 	        stmt.setString(8, doc.getMedicalLicenseNumber());
 	        stmt.setString(9, doc.getDepartment());
 	        
+	        stmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+    //Email validation
+	public boolean isEmailExists(String email) {
+	    try {
+	        String query = "SELECT * FROM users WHERE email = ?";
+	        PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
+	        stmt.setString(1, email);
+	        ResultSet rs = stmt.executeQuery();
+	        return rs.next(); // true if email exists
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
 	}
 }
