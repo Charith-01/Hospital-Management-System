@@ -26,7 +26,6 @@ public class DoctorService {
 	        stmt.setString(8, doc.getMedicalLicenseNumber());
 	        stmt.setString(9, doc.getDepartment());
 	        
-	        hhh
 			
 		} catch (Exception e) {
 			e.printStackTrace();
