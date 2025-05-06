@@ -145,4 +145,46 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>adminDoctors</servlet-name>
+	<servlet-class>com.suwani.servlet.adminDoctors</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>adminDoctors</servlet-name>
+	<url-pattern>/admindoc</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>AdminUpdateDoctor</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminUpdateDoctor</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AdminUpdateDoctor</servlet-name>
+	<url-pattern>/adminupdatedoc</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>AdminDeleteDoctor</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminDeleteDoctor</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AdminDeleteDoctor</servlet-name>
+	<url-pattern>/admindeletedoc</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 

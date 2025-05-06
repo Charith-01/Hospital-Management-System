@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./partials/adminheader.jsp" %>
 
 <!DOCTYPE html>
@@ -11,7 +11,6 @@
 </head>
 <body class="bg-gray-100 flex h-screen font-sans">
 
-
     <!-- Main Content -->
     <main class="flex-1 overflow-y-auto p-8">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
@@ -19,7 +18,7 @@
                 <i class="fas fa-user-md mr-2"></i>Doctor Registration
             </h2>
 
-            <form action="AddDoctor" method="post" enctype="multipart/form-data" class="space-y-6">
+            <form action="AddDoctor" method="post" class="space-y-6">
 
                 <!-- Full Name & Gender -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -30,9 +29,10 @@
                     <div>
                         <label class="block font-medium">Gender</label>
                         <select name="gender" class="w-full border border-gray-300 p-3 rounded">
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
+                        	<option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -61,13 +61,13 @@
 				        <label class="block font-medium">Specialization</label>
 				        <select name="specialization" class="w-full border border-gray-300 p-3 rounded">
 				            <option value="">Select Specialization</option>
-				            <option>Cardiology</option>
-				            <option>Neurology</option>
-				            <option>Orthopedics</option>
-				            <option>Pediatrics</option>
-				            <option>Dermatology</option>
-				            <option>General Surgery</option>
-				            <option>Psychiatry</option>
+				            <option value="Cardiology">Cardiology</option>
+				            <option value="Neurology">Neurology</option>
+				            <option value="Orthopedics">Orthopedics</option>
+				            <option value="Pediatrics">Pediatrics</option>
+				            <option value="Dermatology">Dermatology</option>
+				            <option value="General_Surgery">General Surgery</option>
+				            <option value="Psychiatry">Psychiatry</option>
 				        </select>
 				    </div>
 				    <div>
@@ -86,12 +86,12 @@
 				        <label class="block font-medium">Department</label>
 				        <select name="department" class="w-full border border-gray-300 p-3 rounded">
 				            <option value="">Select Department</option>
-				            <option>Emergency</option>
-				            <option>Outpatient</option>
-				            <option>Radiology</option>
-				            <option>ICU</option>
-				            <option>Laboratory</option>
-				            <option>Pharmacy</option>
+				            <option value="Emergency">Emergency</option>
+				            <option value="Outpatient">Outpatient</option>
+				            <option value="Radiology">Radiology</option>
+				            <option value="ICU">ICU</option>
+				            <option value="Laboratory">Laboratory</option>
+				            <option value="Pharmacy">Pharmacy</option>
 				        </select>
 				    </div>
 				</div>
