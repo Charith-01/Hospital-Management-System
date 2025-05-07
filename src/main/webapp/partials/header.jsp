@@ -26,20 +26,31 @@
 
         <nav class="hidden md:flex space-x-6">
             <a href="index.jsp" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i> Home</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-user-md mr-1"></i> Clinics</a>
-            <a href="appoinment.jsp" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-calendar-alt mr-2"></i> Appointments</a>
+            
+            <a href="<%= isLoggedIn ? "clinics.jsp" : "#" %>" 
+               class="text-gray-700 hover:text-blue-600 transition"
+               onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='login.jsp'; return false;" %>">
+                <i class="fas fa-user-md mr-1"></i> Clinics
+            </a>
+            
+            <a href="<%= isLoggedIn ? "appoinment.jsp" : "#" %>" 
+               class="text-gray-700 hover:text-blue-600 transition"
+               onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
+                <i class="fas fa-calendar-alt mr-2"></i> Appointments
+            </a>
+            
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-info-circle mr-1"></i> About Us</a>
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
         </nav>
 
         <div class="hidden md:flex space-x-4">
             <% if (isLoggedIn) { %>
-				<a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
-				    <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
-				</a>
-				<a href="Logout" class="px-4 py-2 text-white bg-red-600 rounded-lg shadow hover:bg-red-700 transition">
-				    <i class="fas fa-sign-out-alt mr-1"></i> Logout
-				</a>
+                <a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
+                    <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
+                </a>
+                <a href="Logout" class="px-4 py-2 text-white bg-red-600 rounded-lg shadow hover:bg-red-700 transition">
+                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                </a>
             <% } else { %>
                 <a href="login.jsp" class="px-4 py-2 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition">
                     <i class="fas fa-sign-in-alt mr-1"></i> Login
@@ -58,14 +69,26 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-6 shadow-md">
         <a href="index.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-home mr-1"></i> Home</a>
-        <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-user-md mr-1"></i> Clinics</a>
-        <a href="appoinment.jsp" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-calendar-alt mr-1"></i> Appointments</a>
+        
+        <a href="<%= isLoggedIn ? "clinics.jsp" : "#" %>" 
+           class="block py-2 text-gray-700 hover:text-blue-600"
+           onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='login.jsp'; return false;" %>">
+            <i class="fas fa-user-md mr-1"></i> Clinics
+        </a>
+
+        <a href="<%= isLoggedIn ? "appoinment.jsp" : "#" %>" 
+           class="block py-2 text-gray-700 hover:text-blue-600"
+           onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
+            <i class="fas fa-calendar-alt mr-1"></i> Appointments
+        </a>
+        
         <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-info-circle mr-1"></i> About Us</a>
         <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
+        
         <% if (isLoggedIn) { %>
-            				<a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
-				    <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
-				</a>
+            <a href="userprofile.jsp" class="block py-2 text-black font-bold hover:text-blue-600">
+                <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
+            </a>
             <a href="Logout" class="block py-2 text-white bg-red-600 rounded-lg text-center mt-2 hover:bg-red-700 transition">
                 <i class="fas fa-sign-out-alt mr-1"></i> Logout
             </a>

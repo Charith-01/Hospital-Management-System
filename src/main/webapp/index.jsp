@@ -15,7 +15,7 @@
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Your Health, Our Priority</h1>
                             <p class="text-lg md:text-xl mt-4">Providing world-class healthcare services with compassion and expertise.</p>
-                            <a href="#" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
+                            <a href="appoinment.jsp" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
                                 <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
                             </a>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Advanced Medical Care</h1>
                             <p class="text-lg md:text-xl mt-4">Bringing you the latest in medical technology and expert care.</p>
-                            <a href="#" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
+                            <a href="appoinment.jsp" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
                                 <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
                             </a>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
                             <h1 class="text-4xl md:text-6xl font-bold">Caring for Every Life</h1>
                             <p class="text-lg md:text-xl mt-4">Dedicated healthcare professionals committed to your well-being.</p>
-                            <a href="#" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
+                            <a href="appoinment.jsp" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
                                 <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
                             </a>
                         </div>
