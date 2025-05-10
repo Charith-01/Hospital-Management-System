@@ -187,4 +187,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>AddClinic</servlet-name>
+	<servlet-class>com.suwani.servlet.AddClinic</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AddClinic</servlet-name>
+	<url-pattern>/addclinic</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 

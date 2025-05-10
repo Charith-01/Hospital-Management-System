@@ -110,6 +110,7 @@
     </div>
 </section>
 
+
 <!-- Key Features / Services Section -->
 <section class="bg-gray-100 py-20">
     <div class="container mx-auto px-6 md:px-12 lg:px-16 text-center">
@@ -331,6 +332,93 @@
         </div>
     </div>
 </section>
+
+<!-- Testimonials Section -->
+<section class="bg-white py-20">
+    <div class="container mx-auto px-6 md:px-12 lg:px-16 text-center">
+        <h2 class="text-5xl font-bold text-gray-800 mb-6">What Our Patients Say</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+            Hear from some of our satisfied patients who have experienced exceptional care at Suwani Hospital.
+        </p>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg text-left">
+                <p class="text-gray-700 italic">"The doctors and staff were incredibly caring and professional. I felt safe and well taken care of during my entire stay."</p>
+                
+                <!-- Rating Stars -->
+                <div class="flex items-center mt-4 text-yellow-400">
+                    <span class="text-sm mr-2 font-semibold text-gray-600">Rating:</span>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                </div>
+
+                <div class="mt-4 flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Patient" class="w-12 h-12 rounded-full mr-4 object-cover">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800">Anjali Perera</h4>
+                        <span class="text-sm text-gray-500">Colombo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg text-left">
+                <p class="text-gray-700 italic">"Suwani Hospital uses advanced equipment and offers top-notch services."</p>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center mt-4 text-yellow-400">
+                    <span class="text-sm mr-2 font-semibold text-gray-600">Rating:</span>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                </div>
+
+                <div class="mt-4 flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Patient" class="w-12 h-12 rounded-full mr-4 object-cover">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800">Ruwan Silva</h4>
+                        <span class="text-sm text-gray-500">Galle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg text-left">
+                <p class="text-gray-700 italic">"From the moment I walked in, I was treated with kindness and respect. The entire team is amazing!"</p>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center mt-4 text-yellow-400">
+                    <span class="text-sm mr-2 font-semibold text-gray-600">Rating:</span>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                    <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.8 12.18.9 7.91l6.095-.89L10 2l2.995 5.02 6.095.89-4.9 4.27 1.678 5.91z"/></svg>
+                </div>
+
+                <div class="mt-4 flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Patient" class="w-12 h-12 rounded-full mr-4 object-cover">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800">Meera Fernando</h4>
+                        <span class="text-sm text-gray-500">Kandy</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
 
 <%@ include file="./partials/footer.jsp" %>
 
