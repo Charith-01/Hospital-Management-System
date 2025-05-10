@@ -64,15 +64,32 @@
           <input type="text" id="hours" name="hours" placeholder="e.g. Mon-Fri: 9am - 5pm"
                  class="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
-
-        <!-- Clinic Image Upload -->
-        <div>
-          <label for="clinicImage" class="block text-gray-700 font-semibold mb-1">
-            <i class="fas fa-image mr-2 text-blue-500"></i>Clinic Image
-          </label>
-          <input type="file" id="clinicImage" name="clinicImage" accept="image/*"
-                 class="w-full text-gray-600 file:border-0 file:bg-blue-100 file:px-4 file:py-2 file:rounded-lg file:text-blue-700 hover:file:bg-blue-200">
-        </div>
+        
+        
+		<!-- Clinic Image Upload -->
+		<div>
+		  <label for="clinicImage" class="block text-gray-700 font-semibold mb-1">
+		    <i class="fas fa-image mr-2 text-blue-500"></i>Clinic Image
+		  </label>
+		  <input type="file" id="clinicImage" name="clinicImage" accept="image/*" required
+		         class="w-full text-gray-600 file:border-0 file:bg-blue-100 file:px-4 file:py-2 file:rounded-lg file:text-blue-700 hover:file:bg-blue-200"
+		         onchange="validateImage()">
+		</div>
+		
+		<script>
+		  function validateImage() {
+		    const fileInput = document.getElementById("clinicImage");
+		    const file = fileInput.files[0];
+		    
+		    if (file) {
+		      const fileSize = file.size / 1024 / 1024; // Convert size to MB
+		      if (fileSize > 5) { // Example: Max file size 5MB
+		        alert("File size must be less than 5MB.");
+		        fileInput.value = ''; // Clear the input if the file is too large
+		      }
+		    }
+		  }
+		</script>
 
         <!-- Submit Button -->
         <div class="pt-4">
