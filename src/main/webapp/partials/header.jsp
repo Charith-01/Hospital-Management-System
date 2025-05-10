@@ -20,9 +20,9 @@
 
 <header class="bg-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.jsp" class="text-2xl font-bold text-blue-600 flex items-center">
-            <i class="fas fa-hospital mr-2"></i> Suwani Hospital
-        </a>
+	<a href="index.jsp" class="text-2xl font-bold text-blue-600 flex items-center">
+	    <img src="assets/logo.png" alt="Suwani Hospital Logo" class="h-16 mr-3">
+	</a>
 
         <nav class="hidden md:flex space-x-6">
             <a href="index.jsp" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i> Home</a>

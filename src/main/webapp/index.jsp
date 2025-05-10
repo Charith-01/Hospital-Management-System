@@ -49,8 +49,7 @@
     
                 <!-- Swiper Pagination & Navigation -->
                 <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+
             </div>
         </section>
     
@@ -416,8 +415,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <%@ include file="./partials/footer.jsp" %>

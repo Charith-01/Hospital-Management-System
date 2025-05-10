@@ -6,13 +6,14 @@
     <div class="container mx-auto px-6 md:px-12 lg:px-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <!-- Logo & About -->
-            <div>
-                <h2 class="text-3xl font-bold text-white">Suwani Hospital</h2>
-                <p class="mt-3 text-gray-400">
-                    Providing exceptional healthcare with the latest medical advancements and compassionate care.
-                </p>
-            </div>
+<!-- Logo & About -->
+<div>
+    <img src="assets/logo.png" alt="Suwani Hospital Logo" class="h-16 mb-3">
+    <p class="text-gray-400">
+        Providing exceptional healthcare with the latest medical advancements and compassionate care.
+    </p>
+</div>
+
 
             <!-- Quick Links -->
             <div>
