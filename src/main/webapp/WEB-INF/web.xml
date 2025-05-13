@@ -229,4 +229,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>AppointmentServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.AppointmentServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AppointmentServlet</servlet-name>
+	<url-pattern>/appointmentservlet</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
