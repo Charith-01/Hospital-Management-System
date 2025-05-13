@@ -31,10 +31,11 @@ public class AddClinic extends HttpServlet {
         clinic.setContactNumber(request.getParameter("contact"));
         clinic.setOperningHours(request.getParameter("hours"));
 
-        Part filePart = request.getPart("clinicImage"); // Retrieves <input type="file" name="clinicImage">
+        Part filePart = request.getPart("clinicImage");
         if (filePart != null && filePart.getSize() > 0) {
             InputStream inputStream = filePart.getInputStream();
-            clinic.setClinicImage(inputStream);
+            byte[] imageBytes = inputStream.readAllBytes(); // Read image into byte[]
+            clinic.setClinicImage(imageBytes);
         }
 
         ClinicService service = new ClinicService();

@@ -1,6 +1,5 @@
 package com.suwani.model;
 
-import java.io.InputStream;
 import java.sql.Timestamp; // Corrected the import
 
 public class Clinic {
@@ -11,7 +10,7 @@ public class Clinic {
     String location;
     String contactNumber;
     String operningHours;
-    InputStream clinicImage; // Changed from String to InputStream for BLOB
+    byte[] clinicImage;
     Timestamp createdAt;
 
     public int getClinicid() {
@@ -38,7 +37,7 @@ public class Clinic {
         return operningHours;
     }
 
-    public InputStream getClinicImage() {
+    public byte[] getClinicImage() {
         return clinicImage;
     }
 
@@ -70,8 +69,8 @@ public class Clinic {
         this.operningHours = operningHours;
     }
 
-    public void setClinicImage(InputStream clinicImage) {
-        this.clinicImage = clinicImage;
+    public void setClinicImage(byte[] bs) {
+        this.clinicImage = bs;
     }
 
     public void setCreatedAt(Timestamp createdAt) {

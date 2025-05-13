@@ -201,4 +201,32 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>AdminClinic</servlet-name>
+	<servlet-class>com.suwani.servlet.AdminClinic</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AdminClinic</servlet-name>
+	<url-pattern>/adminclinic</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>ClinicImage</servlet-name>
+	<servlet-class>com.suwani.servlet.ClinicImage</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>ClinicImage</servlet-name>
+	<url-pattern>/clinicimage</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
