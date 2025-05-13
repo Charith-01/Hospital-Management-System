@@ -231,6 +231,20 @@
 
 <servlet>
 
+	<servlet-name>AppointmentReadServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.AppointmentReadServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>AppointmentReadServlet</servlet-name>
+	<url-pattern>/appointmentreadservlet</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
 	<servlet-name>AppointmentServlet</servlet-name>
 	<servlet-class>com.suwani.servlet.AppointmentServlet</servlet-class>
 
@@ -240,6 +254,48 @@
 
 	<servlet-name>AppointmentServlet</servlet-name>
 	<url-pattern>/appointmentservlet</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>UpdateAppointmentServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.UpdateAppointmentServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>UpdateAppointmentServlet</servlet-name>
+	<url-pattern>/updateappointmentservlet</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>updateServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.updateServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>updateServlet</servlet-name>
+	<url-pattern>/updateservlet</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
+
+	<servlet-name>DeleteAppointmentServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.DeleteAppointmentServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>DeleteAppointmentServlet</servlet-name>
+	<url-pattern>/deleteappointmentservlet</url-pattern>
 
 </servlet-mapping>
 
