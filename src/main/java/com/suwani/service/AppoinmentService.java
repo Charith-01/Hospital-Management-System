@@ -76,5 +76,3 @@ public class AppoinmentService {
         return appointments;
     }
 }
-
-
