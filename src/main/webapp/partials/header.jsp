@@ -33,7 +33,7 @@
                 <i class="fas fa-user-md mr-1"></i> Clinics
             </a>
             
-            <a href="<%= isLoggedIn ? "appoinment.jsp" : "#" %>" 
+            <a href="<%= isLoggedIn ? "Appoinment.jsp" : "#" %>" 
                class="text-gray-700 hover:text-blue-600 transition"
                onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
                 <i class="fas fa-calendar-alt mr-2"></i> Appointments

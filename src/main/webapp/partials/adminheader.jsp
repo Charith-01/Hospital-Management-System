@@ -25,22 +25,32 @@
             </form>
             
             <!-- Form for submitting to the adminDoctors-->
-			<form action="adminDoctors" method="POST" class="w-full">
-			    <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
-			        <i class="fas fa-user-md mr-3 text-green-600"></i> Doctors
-			    </button>
-			</form>
-			
-			<!-- Form for submitting to the AdminClinics -->
-			<form action="AdminClinic" method="POST" class="w-full">
-			    <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
-			        <i class="fas fa-clinic-medical mr-3 text-purple-600"></i> Clinics
-			    </button>
-			</form>
-			
-            <a href="#" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
-                <i class="fas fa-calendar-alt mr-3 text-yellow-600"></i> Appointments
-            </a>
+            <form action="adminDoctors" method="POST" class="w-full">
+                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
+                    <i class="fas fa-user-md mr-3 text-green-600"></i> Doctors
+                </button>
+            </form>
+            
+            <!-- Form for submitting to the AdminClinics -->
+            <form action="AdminClinic" method="POST" class="w-full">
+                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
+                    <i class="fas fa-clinic-medical mr-3 text-purple-600"></i> Clinics
+                </button>
+            </form>
+            
+            <!-- Form for submitting to AppointmentReadServlet -->
+            <form action="AppointmentReadServlet" method="POST" class="w-full">
+                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
+                    <i class="fas fa-calendar-alt mr-3 text-yellow-600"></i> Appointments
+                </button>
+            </form>
+            
+            <!-- New Feedback Section -->
+            <form action="AdminFeedback" method="POST" class="w-full">
+                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
+                    <i class="fas fa-comment-alt mr-3 text-indigo-600"></i> Feedback
+                </button>
+            </form>
         </nav>
         <div class="p-4">
             <a href="Logout" class="w-full flex items-center justify-center py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
