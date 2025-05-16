@@ -1,60 +1,58 @@
 package com.suwani.servlet;
 
 import java.io.IOException;
-import java.time.format.DateTimeParseException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDate;
+import javax.servlet.http.*;
+
 import com.suwani.model.Appointment;
+import com.suwani.model.User;
 import com.suwani.service.AppointmentService;
 
 @WebServlet("/AppointmentServlet")
 public class AppointmentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
- // In AppointmentServlet.java
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        HttpSession session = request.getSession(false);
+        User loggedUser = (session != null) ? (User) session.getAttribute("user") : null;
 
-    	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    	        throws ServletException, IOException {
+        if (loggedUser == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
 
-    	    try {
-    	        // Create and populate Appointment object
-    	        Appointment app = new Appointment();
-    	        app.setPatientName(request.getParameter("name"));
-    	        app.setEmail(request.getParameter("email"));
-    	        app.setPhoneNumber(request.getParameter("phone"));
-    	        app.setAppointmentDate(request.getParameter("date"));
-    	        
-    	        app.setDoctorName(request.getParameter("doctor"));
-    	        app.setAdditionalNotes(request.getParameter("note"));
+        try {
+            // Create and populate Appointment object
+            Appointment app = new Appointment();
+            app.setPatientName(request.getParameter("name"));
+            app.setEmail(loggedUser.getEmail()); // Use session email for security
+            app.setPhoneNumber(request.getParameter("phone"));
+            app.setAppointmentDate(request.getParameter("date"));
+            app.setDoctorName(request.getParameter("doctor"));
+            app.setAdditionalNotes(request.getParameter("note"));
 
-    	        // Save appointment
-    	        AppointmentService service = new AppointmentService();
-    	        service.addAppointment(app);
-    	        
-    	        // Fetch appointments for the user
-    	        List<Appointment> appointments = service.getAppointmentsByEmail(app);
-    	        request.setAttribute("appointments", appointments); 
+            // Save appointment
+            AppointmentService service = new AppointmentService();
+            service.addAppointment(app);
 
-    	        // Forward to view page
-    	        RequestDispatcher dispatcher = request.getRequestDispatcher("viewAppointments.jsp");
-    	        dispatcher.forward(request, response);
+            // Set success message and redirect to UserAppointments
+            session.setAttribute("successMessage", "Appointment booked successfully.");
+            response.sendRedirect("UserAppointments");
 
-    	    } catch (IllegalArgumentException e) {
-    	        // Handle validation errors (e.g., invalid date or empty fields)
-    	        request.setAttribute("errorMessage", e.getMessage());
-    	        request.getRequestDispatcher("Appointment.jsp").forward(request, response);
-    	    } catch (Exception e) {
-    	        // Handle other unexpected errors
-    	        e.printStackTrace();
-    	        request.setAttribute("errorMessage", "An unexpected error occurred: " + e.getMessage());
-    	        request.getRequestDispatcher("Appointment.jsp").forward(request, response);
-    	    }
-    	}}
+        } catch (IllegalArgumentException e) {
+            // Handle validation errors
+            request.setAttribute("errorMessage", e.getMessage());
+            request.getRequestDispatcher("addAppointment.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            // Handle unexpected errors
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "An unexpected error occurred: " + e.getMessage());
+            request.getRequestDispatcher("addAppointment.jsp").forward(request, response);
+        }
+    }
+}

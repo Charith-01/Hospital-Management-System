@@ -1,48 +1,41 @@
 package com.suwani.servlet;
 
-import java.io.IOException;
+import com.suwani.service.AppointmentService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import com.suwani.service.AppointmentService;
+import javax.servlet.http.*;
+import java.io.IOException;
 
 @WebServlet("/DeleteAppointmentServlet")
 public class DeleteAppointmentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private AppointmentService service = new AppointmentService();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        
-        String email = request.getParameter("email");
-        String doctorName = request.getParameter("doctorName");
-        String patientName = request.getParameter("patientName");
-        String redirectToAppointment = request.getParameter("redirectToAppointment");
-        
-        boolean deleted = service.deleteAppointment(email, doctorName, patientName);
-        
-        HttpSession session = request.getSession();
-        if (deleted) {
-            session.setAttribute("successMessage", "Appointment deleted successfully!");
-            
-            // Check if we should redirect to Appointment.jsp
-            if (redirectToAppointment != null && redirectToAppointment.equals("true")) {
-                response.sendRedirect("Appointment.jsp");
-                return;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Get appointment ID from the request
+        String appointmentIdStr = request.getParameter("appointmentId");
+
+        if (appointmentIdStr != null && !appointmentIdStr.isEmpty()) {
+            try {
+                int appointmentId = Integer.parseInt(appointmentIdStr);
+                
+                // Call the service to delete the appointment
+                AppointmentService service = new AppointmentService();
+                boolean deleted = service.deleteAppointmentById(appointmentId);
+
+                // Set success or failure message if needed
+                HttpSession session = request.getSession();
+                if (deleted) {
+                    session.setAttribute("message", "Appointment cancelled successfully.");
+                } else {
+                    session.setAttribute("error", "Failed to cancel the appointment.");
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
-        } else {
-            session.setAttribute("errorMessage", "Failed to delete appointment. Please try again.");
         }
-        
-        // Default redirect to viewAppointments.jsp
-        response.sendRedirect("viewAppointments.jsp");
-    }
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        doPost(request, response);
+
+        // Redirect back to the appointments page
+        response.sendRedirect("UserAppointments");
     }
 }

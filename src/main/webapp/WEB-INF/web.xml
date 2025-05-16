@@ -299,4 +299,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>UserAppointments</servlet-name>
+	<servlet-class>com.suwani.servlet.UserAppointments</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>UserAppointments</servlet-name>
+	<url-pattern>/useraappointments</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
