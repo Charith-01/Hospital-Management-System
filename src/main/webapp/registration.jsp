@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Registration Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="JS/user_registration_validation.js"></script>
     <script>
         function toggleOtherInput(checkbox) {
             const otherInput = document.getElementById('otherCondition');
