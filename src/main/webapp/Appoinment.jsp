@@ -1,178 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%@ include file="./partials/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/c61dc916f0.js" ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/c61dc916f0.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <title>Appointment</title>
+    <title>My Appointments</title>
     <style>
-        .alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            max-width: 400px;
-            animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
-        }
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        .phone-error {
-            color: #dc3545;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-            display: none;
-        }
-        .border-error {
-            border-color: #dc3545 !important;
+        .appointment-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 
-<body>
-    <!-- Success/Error Messages -->
-    <c:if test="${not empty successMessage}">
-        <div class="alert bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-lg">
-            <div class="flex items-center">
-                <i class="fas fa-check-circle mr-2"></i>
-                <p class="font-bold">${successMessage}</p>
-                <button type="button" class="ml-auto" onclick="this.parentElement.parentElement.style.display='none'">
-                    <i class="fas fa-times"></i>
-                </button>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">My Appointments</h1>
+                <p class="text-gray-600 mt-2">View and manage your upcoming appointments</p>
             </div>
         </div>
-        <c:remove var="successMessage" scope="session"/>
-    </c:if>
-    
-    <c:if test="${not empty errorMessage}">
-        <div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-lg">
-            <div class="flex items-center">
-                <i class="fas fa-exclamation-circle mr-2"></i>
-                <p class="font-bold">${errorMessage}</p>
-                <button type="button" class="ml-auto" onclick="this.parentElement.parentElement.style.display='none'">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+
+        <!-- Appointment Status Tabs -->
+        <div class="flex border-b border-gray-200 mb-6">
+            <button class="px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600">Upcoming</button>
+            <button class="px-4 py-2 font-medium text-gray-500 hover:text-gray-700">Completed</button>
         </div>
-        <c:remove var="errorMessage" scope="session"/>
-    </c:if>
 
-    <!-- Appointment Booking Section -->
-    <section class="bg-blue-600 py-20 text-white">
-        <div class="container mx-auto px-6 md:px-12 lg:px-16 text-center">
-            <h2 class="text-5xl font-bold mb-6">Book an Appointment</h2>
-            <p class="text-lg text-blue-200 max-w-2xl mx-auto">
-                Schedule a consultation with our experienced doctors easily.
-            </p>
+        <!-- Appointments List -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Booking Form -->
-            <div class="bg-white text-gray-900 rounded-2xl shadow-lg p-8 mt-10 max-w-3xl mx-auto">
-                <form action="AppointmentServlet" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" id="appointmentForm">
-                    
-                    <!-- Full Name -->
-                    <div>
-                        <label class="block font-semibold">Full Name</label>
-                        <input type="text" name="name" placeholder="Enter your name" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <!-- Show appointments if exist -->
+            <c:if test="${fn:length(appointments) > 0}">
+                <c:forEach var="appointment" items="${appointments}">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 appointment-card">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="inline-block px-3 py-1 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full mb-2">
+                                        New
+                                    </span>
+                                    <h3 class="text-xl font-bold text-gray-800">${appointment.doctorName}</h3>
+                                    <p class="text-gray-600">Doctor</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    <span>${appointment.appointmentDate}</span>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-phone mr-2"></i>
+                                    <span>${appointment.phoneNumber}</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-user mr-2"></i>
+                                    <span>Patient: ${appointment.patientName}</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex justify-between">
+                                <form action="UpdateAppointmentServlet" method="get">
+                                    <input type="hidden" name="appointmentId" value="${appointment.id}" />
+                                    <button type="submit" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                        <i class="fas fa-edit mr-1"></i> Reschedule
+                                    </button>
+                                </form>
+
+                                <form action="DeleteAppointmentServlet" method="post" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                    <input type="hidden" name="appointmentId" value="${appointment.id}" />
+                                    <button type="submit" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                                        <i class="fas fa-times mr-1"></i> Cancel
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+                </c:forEach>
+            </c:if>
 
-                    <!-- Email -->
-                    <div>
-                        <label class="block font-semibold">Email</label>
-                        <input type="email" name="email" placeholder="Enter your email" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                    </div>
+            <!-- Show message if no appointments -->
+            <c:if test="${fn:length(appointments) == 0}">
+                <div class="col-span-full text-center py-12">
+                    <i class="far fa-calendar-times text-5xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-medium text-gray-700">No upcoming appointments scheduled</h3>
+                    <p class="text-gray-500 mt-2">You don't have any upcoming appointments.</p>
+                    <a href="addAppointment.jsp" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-200 ease-in-out shadow-md">
+                        Book an Appointment
+                    </a>
+                </div>
+            </c:if>
 
-                    <!-- Phone Number -->
-                    <div>
-                        <label class="block font-semibold">Phone Number</label>
-                        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" 
-                            class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                            pattern="[0-9]{10}" maxlength="10" required>
-                        <div id="phoneError" class="phone-error">Please enter a valid 10-digit phone number</div>
-                    </div>
-
-                    <!-- Appointment Date -->
-                    <div>
-                        <label class="block font-semibold">Appointment Date</label>
-                        <input type="date" name="date" required 
-                            class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-
-                    <!-- Select Doctor -->
-                    <div class="md:col-span-2">
-                        <label class="block font-semibold">Select Doctor</label>
-                        <select class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="doctor" required>
-                            <option value="">Select a doctor</option>
-                            <option>Dr. John Smith - Cardiologist</option>
-                            <option>Dr. Sarah Johnson - Neurologist</option>
-                            <option>Dr. Michael Brown - Orthopedic Surgeon</option>
-                            <option>Dr. Emily White - Pediatrician</option>
-                        </select>
-                    </div>
-
-                    <!-- Message -->
-                    <div class="md:col-span-2">
-                        <label class="block font-semibold">Additional Notes</label>
-                        <textarea rows="4" name="note" placeholder="Write your message..." class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="md:col-span-2 text-center">
-                        <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
-                            Book Appointment
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
-    </section>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const phoneInput = document.getElementById('phone');
-            const phoneError = document.getElementById('phoneError');
-            const form = document.getElementById('appointmentForm');
-
-            // Validate phone number on input
-            phoneInput.addEventListener('input', function() {
-                // Remove any non-digit characters
-                this.value = this.value.replace(/\D/g, '');
-                
-                // Validate length
-                if (this.value.length !== 10) {
-                    this.classList.add('border-error');
-                    phoneError.style.display = 'block';
-                } else {
-                    this.classList.remove('border-error');
-                    phoneError.style.display = 'none';
-                }
-            });
-
-            // Validate form on submission
-            form.addEventListener('submit', function(e) {
-                if (phoneInput.value.length !== 10) {
-                    e.preventDefault();
-                    phoneInput.classList.add('border-error');
-                    phoneError.style.display = 'block';
-                    phoneInput.focus();
-                }
-            });
-        });
-    </script>
-
-<%@ include file="./partials/footer.jsp" %>
-    
+    <%@ include file="./partials/footer.jsp" %>
 </body>
 </html>
