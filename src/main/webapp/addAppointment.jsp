@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%@ include file="./partials/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/c61dc916f0.js" ></script>
+    <script src="https://kit.fontawesome.com/c61dc916f0.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>Appointment</title>
@@ -56,7 +56,7 @@
         </div>
         <c:remove var="successMessage" scope="session"/>
     </c:if>
-    
+
     <c:if test="${not empty errorMessage}">
         <div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-lg">
             <div class="flex items-center">
@@ -81,7 +81,7 @@
             <!-- Booking Form -->
             <div class="bg-white text-gray-900 rounded-2xl shadow-lg p-8 mt-10 max-w-3xl mx-auto">
                 <form action="AppointmentServlet" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" id="appointmentForm">
-                    
+
                     <!-- Full Name -->
                     <div>
                         <label class="block font-semibold">Full Name</label>
@@ -97,8 +97,8 @@
                     <!-- Phone Number -->
                     <div>
                         <label class="block font-semibold">Phone Number</label>
-                        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" 
-                            class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number"
+                            class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             pattern="[0-9]{10}" maxlength="10" required>
                         <div id="phoneError" class="phone-error">Please enter a valid 10-digit phone number</div>
                     </div>
@@ -106,19 +106,18 @@
                     <!-- Appointment Date -->
                     <div>
                         <label class="block font-semibold">Appointment Date</label>
-                        <input type="date" name="date" required 
+                        <input type="date" name="date" required
                             class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
 
-                    <!-- Select Doctor -->
+                    <!-- Select Doctor (Dynamic) -->
                     <div class="md:col-span-2">
                         <label class="block font-semibold">Select Doctor</label>
                         <select class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="doctor" required>
                             <option value="">Select a doctor</option>
-                            <option>Dr. John Smith - Cardiologist</option>
-                            <option>Dr. Sarah Johnson - Neurologist</option>
-                            <option>Dr. Michael Brown - Orthopedic Surgeon</option>
-                            <option>Dr. Emily White - Pediatrician</option>
+                            <c:forEach var="doc" items="${doctorList}">
+                                <option value="${doc.fullname} - ${doc.specialization}">${doc.fullname} - ${doc.specialization}</option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -140,17 +139,13 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const phoneInput = document.getElementById('phone');
             const phoneError = document.getElementById('phoneError');
             const form = document.getElementById('appointmentForm');
 
-            // Validate phone number on input
-            phoneInput.addEventListener('input', function() {
-                // Remove any non-digit characters
+            phoneInput.addEventListener('input', function () {
                 this.value = this.value.replace(/\D/g, '');
-                
-                // Validate length
                 if (this.value.length !== 10) {
                     this.classList.add('border-error');
                     phoneError.style.display = 'block';
@@ -160,8 +155,7 @@
                 }
             });
 
-            // Validate form on submission
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 if (phoneInput.value.length !== 10) {
                     e.preventDefault();
                     phoneInput.classList.add('border-error');
@@ -173,6 +167,6 @@
     </script>
 
 <%@ include file="./partials/footer.jsp" %>
-    
+
 </body>
 </html>

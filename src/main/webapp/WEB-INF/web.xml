@@ -313,4 +313,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>LoadAppointmentFormServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.LoadAppointmentFormServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>LoadAppointmentFormServlet</servlet-name>
+	<url-pattern>/loadappointmentformservlet</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
