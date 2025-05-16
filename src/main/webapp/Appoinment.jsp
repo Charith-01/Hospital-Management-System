@@ -55,28 +55,34 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4">
-                                <div class="flex items-center text-gray-600 mb-2">
-                                    <i class="far fa-calendar-alt mr-2"></i>
-                                    <span>${appointment.appointmentDate}</span>
-                                </div>
-                                <div class="flex items-center text-gray-600 mb-2">
-                                    <i class="fas fa-phone mr-2"></i>
-                                    <span>${appointment.phoneNumber}</span>
-                                </div>
-                                <div class="flex items-center text-gray-600">
-                                    <i class="fas fa-user mr-2"></i>
-                                    <span>Patient: ${appointment.patientName}</span>
-                                </div>
-                            </div>
+							<div class="mt-4">
+							    <div class="flex items-center text-gray-600 mb-2">
+							        <i class="far fa-calendar-alt mr-2"></i>
+							        <span>${appointment.appointmentDate}</span>
+							    </div>
+							    <div class="flex items-center text-gray-600 mb-2">
+							        <i class="fas fa-phone mr-2"></i>
+							        <span>${appointment.phoneNumber}</span>
+							    </div>
+							    <div class="flex items-center text-gray-600">
+							        <i class="fas fa-sticky-note mr-2"></i>
+							        <span>Note: ${appointment.additionalNotes}</span>
+							    </div>
+							</div>
 
                             <div class="mt-6 flex justify-between">
-                                <form action="UpdateAppointmentServlet" method="get">
-                                    <input type="hidden" name="appointmentId" value="${appointment.id}" />
-                                    <button type="submit" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                                        <i class="fas fa-edit mr-1"></i> Reschedule
-                                    </button>
-                                </form>
+								<form action="updateAppointment.jsp" method="get">
+								    <input type="hidden" name="id" value="${appointment.id}" />
+								    <input type="hidden" name="name" value="${appointment.patientName}" />
+								    <input type="hidden" name="email" value="${appointment.email}" />
+								    <input type="hidden" name="phone" value="${appointment.phoneNumber}" />
+								    <input type="hidden" name="date" value="${appointment.appointmentDate}" />
+								    <input type="hidden" name="doctor" value="${appointment.doctorName}" />
+								    <input type="hidden" name="note" value="${appointment.additionalNotes}" />
+								    <button type="submit" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+								        <i class="fas fa-edit mr-1"></i> Reschedule
+								    </button>
+								</form>
 
                                 <form action="DeleteAppointmentServlet" method="post" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                     <input type="hidden" name="appointmentId" value="${appointment.id}" />

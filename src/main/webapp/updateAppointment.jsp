@@ -1,170 +1,91 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="./partials/header.jsp" %>
-
+<%@ page import="com.suwani.model.Appointment" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <meta charset="UTF-8">
     <title>Update Appointment</title>
-    <style>
-        body {
-            background-color: #036ffc !important;
-            min-height: 100vh;
-        }
-        .container-wrapper {
-            background-color: #036ffc;
-            padding: 2rem 0;
-        }
-        .appointment-form {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .form-header {
-            color: black;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .btn-update {
-            background-color: #009900;
-            border-color: black;
-            padding: 0.5rem 2rem;
-            color: white;
-        }
-        .btn-update:hover {
-            background-color: #006600;
-            border-color: #333;
-            color: white;
-        }
-        .is-invalid {
-            border-color: #dc3545;
-        }
-        .invalid-feedback {
-            color: #dc3545;
-            display: none;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/c61dc916f0.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<div class="container-wrapper">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="appointment-form">
-                    <h1 class="form-header text-center">
-                        <i class="fas fa-calendar-check me-2"></i>Update Appointment
-                    </h1>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-12">
 
-                    <c:if test="${not empty errorMessage}">
-                        <div class="alert alert-danger">${errorMessage}</div>
-                    </c:if>
-
-                    <form action="UpdateAppointmentServlet" method="post" id="appointmentForm" novalidate>
-                        <input type="hidden" name="appointmentId" value="${appointment.id}" />
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Patient Name</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                value="${appointment.patientName}" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                value="${appointment.email}" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" name="phone"
-                                value="${appointment.phoneNumber}" required pattern="[0-9]{10}" maxlength="10" />
-                            <div class="invalid-feedback" id="phoneError">
-                                Please enter a valid 10-digit phone number (numbers only)
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Appointment Date</label>
-                            <input type="date" class="form-control" id="date" name="date"
-                                value="${appointment.appointmentDate}" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="doctor" class="form-label">Doctor</label>
-                            <select class="form-select" id="doctor" name="doctor" required>
-                                <option value="">Select a doctor</option>
-                                <option value="Dr. John Smith - Cardiologist"
-                                    <c:if test="${appointment.doctorName == 'Dr. John Smith - Cardiologist'}">selected</c:if>>
-                                    Dr. John Smith - Cardiologist
-                                </option>
-                                <option value="Dr. Sarah Johnson - Neurologist"
-                                    <c:if test="${appointment.doctorName == 'Dr. Sarah Johnson - Neurologist'}">selected</c:if>>
-                                    Dr. Sarah Johnson - Neurologist
-                                </option>
-                                <option value="Dr. Michael Brown - Orthopedic Surgeon"
-                                    <c:if test="${appointment.doctorName == 'Dr. Michael Brown - Orthopedic Surgeon'}">selected</c:if>>
-                                    Dr. Michael Brown - Orthopedic Surgeon
-                                </option>
-                                <option value="Dr. Emily White - Pediatrician"
-                                    <c:if test="${appointment.doctorName == 'Dr. Emily White - Pediatrician'}">selected</c:if>>
-                                    Dr. Emily White - Pediatrician
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="note" class="form-label">Additional Notes</label>
-                            <textarea class="form-control" id="note" name="note" rows="3">${appointment.additionalNotes}</textarea>
-                        </div>
-
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="viewAppointments.jsp" class="btn btn-secondary me-md-2">Cancel</a>
-                            <button type="submit" class="btn btn-update">Update Appointment</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="bg-white shadow-xl rounded-2xl w-full max-w-2xl p-10">
+        <!-- Form Header -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 flex justify-center items-center gap-2">
+                <i class="fas fa-calendar-check text-blue-600"></i> Update Appointment
+            </h1>
+            <p class="text-gray-500 mt-2 text-sm">Modify your appointment details below</p>
         </div>
-    </div>
+
+        <!-- Update Form -->
+        <form action="UpdateAppointmentServlet" method="post" class="space-y-6">
+
+            <input type="hidden" name="id" value="<%= request.getParameter("id") != null ? request.getParameter("id") : "" %>"/>
+
+            <!-- Name -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" name="name" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" name="email" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>" 
+                    class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-2" readonly />
+            </div>
+
+            <!-- Phone -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Phone</label>
+                <input type="text" name="phone" value="<%= request.getParameter("phone") != null ? request.getParameter("phone") : "" %>" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+            </div>
+
+            <!-- Date -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Appointment Date</label>
+                <input type="date" name="date" value="<%= request.getParameter("date") != null ? request.getParameter("date") : "" %>" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+            </div>
+
+            <!-- Doctor -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Doctor</label>
+                <input type="text" name="doctor" value="<%= request.getParameter("doctor") != null ? request.getParameter("doctor") : "" %>" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+            </div>
+
+            <!-- Notes -->
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Additional Notes</label>
+                <textarea name="note" rows="4" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"><%= request.getParameter("note") != null ? request.getParameter("note") : "" %></textarea>
+            </div>
+
+<!-- Submit Button -->
+<div class="flex justify-center">
+    <button type="submit" 
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow-sm transition duration-200">
+        <i class="fas fa-save"></i> Update
+    </button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const phoneInput = document.getElementById('phone');
-    const phoneError = document.getElementById('phoneError');
+        </form>
 
-    phoneInput.addEventListener('input', function() {
-        // Remove non-digit characters
-        this.value = this.value.replace(/\D/g, '');
+        <!-- Success message -->
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null && !message.isEmpty()) {
+        %>
+            <p class="text-green-600 mt-6 text-sm text-center font-medium"><%= message %></p>
+        <%
+            }
+        %>
+    </div>
 
-        // Validate length
-        if (this.value.length !== 10) {
-            this.classList.add('is-invalid');
-            phoneError.style.display = 'block';
-        } else {
-            this.classList.remove('is-invalid');
-            phoneError.style.display = 'none';
-        }
-    });
-
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-        if (phoneInput.value.length !== 10) {
-            e.preventDefault();
-            phoneInput.classList.add('is-invalid');
-            phoneError.style.display = 'block';
-            phoneInput.focus();
-        }
-    });
-</script>
-
-<%@ include file="./partials/footer.jsp" %>
 </body>
 </html>
