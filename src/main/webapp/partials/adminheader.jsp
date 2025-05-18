@@ -32,11 +32,10 @@
             </form>
             
             <!-- Form for submitting to the AdminClinics -->
-            <form action="AdminClinic" method="POST" class="w-full">
-                <button type="submit" class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
-                    <i class="fas fa-clinic-medical mr-3 text-purple-600"></i> Clinics
-                </button>
-            </form>
+			<a href="<%= request.getContextPath() %>/RetrieveClinicServlet" 
+			   class="flex items-center p-3 text-gray-700 hover:bg-blue-100 rounded-lg transition">
+			    <i class="fas fa-clinic-medical mr-3 text-purple-600"></i> Clinics
+			</a>
             
             <!-- Form for submitting to AppointmentReadServlet -->
             <form action="AppointmentReadServlet" method="POST" class="w-full">
