@@ -38,7 +38,7 @@
 
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
-                <input type="email" name="email" value="<%= user.getEmail() %>" required 
+                <input type="email" name="email" value="<%= user.getEmail() %>" readonly 
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             </div>
 
@@ -180,5 +180,49 @@
             </div>
         </form>
     </div>
+    
+    <!-- Add this at the bottom of your JSP file, before </body> -->
+
+<!-- SweetAlert2 JS (for beautiful alerts) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
+        // Simulate form submission (replace with actual AJAX call if needed)
+        setTimeout(() => {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your profile has been updated successfully.',
+                icon: 'success',
+                showConfirmButton: true,
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3b82f6', // Blue-500
+                backdrop: `
+                    rgba(0,0,0,0.4)
+                    url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW5tY2Z1dWJ1Y2N4ZzV1Z3R5Y3B6dW5tY2Z1dWJ1Y2N4ZzV1Z3R5Y3B6dW5tY2Z1dWJ1Y2N4Zw==")
+                    center top
+                    no-repeat
+                `,
+                customClass: {
+                    popup: 'animate__animated animate__fadeInDown',
+                    title: 'text-2xl font-bold text-gray-800',
+                    confirmButton: 'px-4 py-2 rounded-lg shadow-md'
+                },
+                buttonsStyling: false,
+                timer: 3000, // Auto-close after 3 seconds
+                timerProgressBar: true,
+                willClose: () => {
+                    // Submit the form after the alert closes
+                    e.target.submit();
+                }
+            });
+        }, 500); // Small delay for better UX
+    });
+</script>
+
+<!-- Optional: Animate.css for extra animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </body>
 </html>
