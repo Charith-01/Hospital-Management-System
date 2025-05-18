@@ -162,9 +162,10 @@
           <a href="editprofile.jsp" class="flex-1 sm:flex-none items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-[1.02]">
             <i class="fas fa-edit mr-2"></i> Edit Profile
           </a>
-          <form action="DeleteUserProfile" method="POST" onsubmit="return confirmDelete();" class="flex-1 sm:flex-none">
+
+          <form id="deleteForm" action="DeleteUserProfile" method="POST" class="flex-1 sm:flex-none">
             <input type="hidden" name="id" value="${user.userid}">
-            <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-[1.02]">
+            <button type="button" id="openDeleteModalBtn" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-[1.02]">
               <i class="fas fa-trash-alt mr-2"></i> Delete Profile
             </button>
           </form>
@@ -174,11 +175,51 @@
   </div>
 </main>
 
-<!-- Confirmation Script -->
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg shadow-lg max-w-sm w-full p-6">
+    <h2 class="text-xl font-semibold text-red-600 mb-4 flex items-center">
+      <i class="fas fa-exclamation-triangle mr-2"></i> Confirm Deletion
+    </h2>
+    <p class="mb-6 text-gray-700">
+      Are you sure you want to permanently delete this profile?
+    </p>
+    <div class="flex justify-end space-x-4">
+      <button id="cancelDeleteBtn" class="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 text-gray-800 transition">
+        Cancel
+      </button>
+      <button id="confirmDeleteBtn" class="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-semibold transition">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-  function confirmDelete() {
-    return confirm("Are you sure you want to permanently delete this profile?");
-  }
+  const deleteModal = document.getElementById('deleteModal');
+  const openDeleteBtn = document.getElementById('openDeleteModalBtn');
+  const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+  const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+  const deleteForm = document.getElementById('deleteForm');
+
+  openDeleteBtn.addEventListener('click', () => {
+    deleteModal.classList.remove('hidden');
+  });
+
+  cancelDeleteBtn.addEventListener('click', () => {
+    deleteModal.classList.add('hidden');
+  });
+
+  confirmDeleteBtn.addEventListener('click', () => {
+    deleteForm.submit();
+  });
+
+  // Optional: Close modal on outside click
+  deleteModal.addEventListener('click', (e) => {
+    if (e.target === deleteModal) {
+      deleteModal.classList.add('hidden');
+    }
+  });
 </script>
 
 </body>

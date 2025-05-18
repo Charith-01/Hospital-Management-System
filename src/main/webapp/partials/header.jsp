@@ -27,12 +27,12 @@
         <nav class="hidden md:flex space-x-6">
             <a href="index.jsp" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i> Home</a>
             
-            <a href="<%= isLoggedIn ? "clinics.jsp" : "#" %>" 
-               class="text-gray-700 hover:text-blue-600 transition"
-               onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='login.jsp'; return false;" %>">
-                <i class="fas fa-user-md mr-1"></i> Clinics
-            </a>
-            
+			<a href="<%= isLoggedIn ? (request.getContextPath() + "/PublicClinicServlet") : "#" %>" 
+			   class="text-gray-700 hover:text-blue-600 transition"
+			   onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
+			    <i class="fas fa-hospital me-1"></i> Clinics
+			</a>
+
 			<a href="<%= isLoggedIn ? "UserAppointments" : "#" %>" 
 			   class="text-gray-700 hover:text-blue-600 transition"
 			   onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
