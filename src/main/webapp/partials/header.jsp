@@ -37,7 +37,8 @@
 			   class="text-gray-700 hover:text-blue-600 transition"
 			   onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
 			    <i class="fas fa-calendar-alt mr-2"></i> Appointments
-			</a>        
+			</a>
+			      
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-info-circle mr-1"></i> About Us</a>
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
         </nav>

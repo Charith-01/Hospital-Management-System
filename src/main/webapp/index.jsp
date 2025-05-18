@@ -7,45 +7,50 @@
         <section class="relative w-full h-screen">
             <!-- Swiper Container -->
             <div class="swiper mySwiper w-full h-full">
-                <div class="swiper-wrapper">
-    
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide relative w-full h-full">
-                        <img src="assets/hero1.jpg" alt="Hospital" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
-                            <h1 class="text-4xl md:text-6xl font-bold">Your Health, Our Priority</h1>
-                            <p class="text-lg md:text-xl mt-4">Providing world-class healthcare services with compassion and expertise.</p>
-                            <a href="LoadAppointmentFormServlet" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
-                                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
-                            </a>
-                        </div>
-                    </div>
-    
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide relative w-full h-full">
-                        <img src="assets/hero2.jpg" alt="Doctor" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
-                            <h1 class="text-4xl md:text-6xl font-bold">Advanced Medical Care</h1>
-                            <p class="text-lg md:text-xl mt-4">Bringing you the latest in medical technology and expert care.</p>
-                            <a href="LoadAppointmentFormServlet" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
-                                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
-                            </a>
-                        </div>
-                    </div>
-    
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide relative w-full h-full">
-                        <img src="assets/hero3.jpg" alt="Medical Team" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
-                            <h1 class="text-4xl md:text-6xl font-bold">Caring for Every Life</h1>
-                            <p class="text-lg md:text-xl mt-4">Dedicated healthcare professionals committed to your well-being.</p>
-                            <a href="LoadAppointmentFormServlet" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
-                                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
-                            </a>
-                        </div>
-                    </div>
-    
-                </div>
+            
+			<div class="swiper-wrapper">
+			    <!-- Slide 1 -->
+			    <div class="swiper-slide relative w-full h-full">
+			        <img src="assets/hero1.jpg" alt="Hospital" class="w-full h-full object-cover">
+			        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+			            <h1 class="text-4xl md:text-6xl font-bold">Your Health, Our Priority</h1>
+			            <p class="text-lg md:text-xl mt-4">Providing world-class healthcare services with compassion and expertise.</p>
+			            <a href="<%= isLoggedIn ? (request.getContextPath() + "/LoadAppointmentFormServlet") : "#" %>" 
+			               class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition"
+			               onclick="<%= isLoggedIn ? "" : "alert('Please login to book an appointment.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
+			                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
+			            </a>
+			        </div>
+			    </div>
+			
+			    <!-- Slide 2 -->
+			    <div class="swiper-slide relative w-full h-full">
+			        <img src="assets/hero2.jpg" alt="Doctor" class="w-full h-full object-cover">
+			        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+			            <h1 class="text-4xl md:text-6xl font-bold">Advanced Medical Care</h1>
+			            <p class="text-lg md:text-xl mt-4">Bringing you the latest in medical technology and expert care.</p>
+			            <a href="<%= isLoggedIn ? (request.getContextPath() + "/LoadAppointmentFormServlet") : "#" %>" 
+			               class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition"
+			               onclick="<%= isLoggedIn ? "" : "alert('Please login to book an appointment.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
+			                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
+			            </a>
+			        </div>
+			    </div>
+			
+			    <!-- Slide 3 -->
+			    <div class="swiper-slide relative w-full h-full">
+			        <img src="assets/hero3.jpg" alt="Medical Team" class="w-full h-full object-cover">
+			        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+			            <h1 class="text-4xl md:text-6xl font-bold">Caring for Every Life</h1>
+			            <p class="text-lg md:text-xl mt-4">Dedicated healthcare professionals committed to your well-being.</p>
+			            <a href="<%= isLoggedIn ? (request.getContextPath() + "/LoadAppointmentFormServlet") : "#" %>" 
+			               class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition"
+			               onclick="<%= isLoggedIn ? "" : "alert('Please login to book an appointment.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
+			                <i class="fas fa-calendar-alt mr-2"></i> Book an Appointment
+			            </a>
+			        </div>
+			    </div>
+			</div>
     
                 <!-- Swiper Pagination & Navigation -->
                 <div class="swiper-pagination"></div>

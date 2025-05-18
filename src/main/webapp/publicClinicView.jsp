@@ -26,17 +26,12 @@
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-white to-green-50 text-gray-800 min-h-screen">
 
-
-
 <!-- Header Section -->
 <div class="max-w-7xl mx-auto px-4 py-12">
     <div class="text-center mb-12">
-        <div class="inline-block text-blue-600 text-4xl mb-3 animate-pulse">
-            <i class="fas fa-clinic-medical"></i>
-        </div>
         <h1 class="text-5xl font-bold text-blue-700 mb-4">Our Clinics</h1>
-        <p class="text-gray-600 text-lg max-w-xl mx-auto">Explore our top-rated clinics across the country. Trusted doctors, clean facilities, and reliable care.</p>
         <div class="h-1 w-24 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+        <p class="text-gray-600 text-lg max-w-xl mx-auto">Explore our top-rated clinics across the country. Trusted doctors, clean facilities, and reliable care.</p>    
     </div>
 
     <!-- Clinic Cards Section -->

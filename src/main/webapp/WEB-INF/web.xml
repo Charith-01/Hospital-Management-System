@@ -331,4 +331,18 @@
 
 </servlet-mapping>
 
+<servlet>
+
+	<servlet-name>PublicClinicServlet</servlet-name>
+	<servlet-class>com.suwani.servlet.PublicClinicServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+	<servlet-name>PublicClinicServlet</servlet-name>
+	<url-pattern>/publicclinicservlet</url-pattern>
+
+</servlet-mapping>
+
 </web-app> 
