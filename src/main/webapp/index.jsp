@@ -421,6 +421,141 @@
     </div>
 </section>
 
+<!-- AI CHAT BOT -->
+
+   <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .chatbot-enter {
+            animation: chatbotEnter 0.3s ease-out forwards;
+        }
+        .chatbot-exit {
+            animation: chatbotExit 0.3s ease-in forwards;
+        }
+        @keyframes chatbotEnter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes chatbotExit {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
+        }
+        .message-enter {
+            animation: messageEnter 0.2s ease-out;
+        }
+        @keyframes messageEnter {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .typing-indicator {
+            display: inline-block;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #4b5563;
+            margin: 0 2px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Main content would go here -->
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-blue-800 mb-6">Hospital Management System</h1>
+        <p class="text-gray-700">Welcome to our hospital management system. Use the chatbot in the bottom right corner for assistance.</p>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Chatbot Container -->
+        <div id="chatbot-container" class="hidden w-80 h-[500px] bg-white rounded-xl shadow-2xl flex flex-col border border-gray-200 overflow-hidden chatbot-exit">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 rounded-t-xl flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-robot text-xl"></i>
+                    <h3 class="font-semibold text-lg">Hospital Assistant</h3>
+                </div>
+                <div class="flex space-x-3">
+                    <button id="minimize-chatbot" class="text-white hover:text-blue-200 transition">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button id="close-chatbot" class="text-white hover:text-blue-200 transition">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50">
+                <!-- Welcome message -->
+                <div class="flex justify-start message-enter">
+                    <div class="bg-white rounded-xl py-3 px-4 shadow-sm max-w-[80%] border border-gray-100">
+                        <p class="text-gray-800">Hello! I'm your hospital assistant. I can help with:</p>
+                        <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
+                            <li>Appointment booking</li>
+                            <li>Doctor information</li>
+                            <li>Hospital services</li>
+                            <li>Emergency contacts</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600 text-sm">How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div id="quick-actions" class="px-3 pt-2 pb-1 bg-gray-100 border-t border-gray-200">
+                <div class="flex space-x-2 overflow-x-auto pb-2">
+                    <button class="quick-action-btn" data-query="Book appointment">
+                        <i class="fas fa-calendar-check mr-1"></i> Book
+                    </button>
+                    <button class="quick-action-btn" data-query="Doctor list">
+                        <i class="fas fa-user-md mr-1"></i> Doctors
+                    </button>
+                    <button class="quick-action-btn" data-query="Emergency">
+                        <i class="fas fa-ambulance mr-1"></i> Emergency
+                    </button>
+                    <button class="quick-action-btn" data-query="Visiting hours">
+                        <i class="fas fa-clock mr-1"></i> Hours
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-3 bg-white border-t border-gray-200">
+                <div class="flex space-x-2">
+                    <input id="user-input" type="text" placeholder="Type your question..." 
+                           class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    <button id="send-btn" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chatbot Toggle Button -->
+        <button id="open-chatbot" class="bg-gradient-to-br from-blue-600 to-blue-800 text-white w-16 h-16 rounded-full shadow-xl hover:shadow-2xl transition-all flex items-center justify-center">
+            <i class="fas fa-comment-medical text-2xl"></i>
+            <span id="notification-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">1</span>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="JS/chatbot.js"></script>
 
 <%@ include file="./partials/footer.jsp" %>
 
