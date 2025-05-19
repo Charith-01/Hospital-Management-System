@@ -47,6 +47,9 @@ public class UserService {
 	        String query = "SELECT * FROM users WHERE email = ?";
 	        PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
 	        stmt.setString(1, email);
+	        
+	        //ResultSet Stores the returned data rows.
+	        //executeQuery() Executes the SQL query and returns the results (SELECT).
 	        ResultSet rs = stmt.executeQuery();
 	        return rs.next(); // true if email exists
 	    } catch (Exception e) {
@@ -106,6 +109,7 @@ public class UserService {
         ArrayList<User> listuser = new ArrayList<>();
         try {
             String query = "SELECT * FROM users";
+            //Statement use to execute simple sql query(Not parametarized)
             Statement stmt = DBconnect.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -194,7 +198,8 @@ public class UserService {
             stmt.setString(4, u2.getAddress());
             stmt.setDate(5, java.sql.Date.valueOf(u2.getDob()));
             stmt.setInt(6, u2.getUserid());
-
+            
+            //executeUpdate() method use to Insert,update,delete
             return stmt.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
