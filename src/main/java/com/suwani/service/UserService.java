@@ -2,12 +2,9 @@ package com.suwani.service;
 
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.Date; // Import java.sql.Date for date handling
+import java.sql.Date; // Used to convert LocalDate to SQL-compatible Date
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.suwani.model.User;
 import com.suwani.util.DBconnect;
 
@@ -25,6 +22,7 @@ public class UserService {
 	        String query = "INSERT INTO users (fullname, email, phone, address, gender, dob, bloodgroup, medicalcon, password) "
 	                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	        
+	        //helps to execute parameterized SQL queries securely and efficiently.
 	        PreparedStatement stmt = DBconnect.getConnection().prepareStatement(query);
 	        stmt.setString(1, u.getFullname());
 	        stmt.setString(2, u.getEmail());
@@ -38,7 +36,7 @@ public class UserService {
 
 	        stmt.executeUpdate();
 	    } catch (Exception e) {
-	        e.printStackTrace();
+	        e.printStackTrace(); //This method is used to print details about an exception (error) to the console.
 	    }
 	}
 

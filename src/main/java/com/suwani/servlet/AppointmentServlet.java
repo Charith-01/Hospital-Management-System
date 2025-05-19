@@ -40,7 +40,7 @@ public class AppointmentServlet extends HttpServlet {
             service.addAppointment(app);
 
             // Set success message and redirect to UserAppointments
-            session.setAttribute("successMessage", "Appointment booked successfully.");
+ 
             response.sendRedirect("UserAppointments");
 
         } catch (IllegalArgumentException e) {

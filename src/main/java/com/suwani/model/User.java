@@ -1,5 +1,6 @@
 package com.suwani.model;
 
+//Imports the LocalDate class, which is used to represent a date (without time).
 import java.time.LocalDate;
 
 public class User {

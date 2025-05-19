@@ -15,53 +15,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>Book Appointment</title>
-    <style>
-        .alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            max-width: 400px;
-            animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
-        }
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-    </style>
 </head>
 <body>
-
-<!-- Success/Error Messages -->
-<c:if test="${not empty successMessage}">
-    <div class="alert bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-lg">
-        <div class="flex items-center">
-            <i class="fas fa-check-circle mr-2"></i>
-            <p class="font-bold">${successMessage}</p>
-            <button type="button" class="ml-auto" onclick="this.parentElement.parentElement.style.display='none'">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-    <c:remove var="successMessage" scope="session"/>
-</c:if>
-
-<c:if test="${not empty errorMessage}">
-    <div class="alert bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-lg">
-        <div class="flex items-center">
-            <i class="fas fa-exclamation-circle mr-2"></i>
-            <p class="font-bold">${errorMessage}</p>
-            <button type="button" class="ml-auto" onclick="this.parentElement.parentElement.style.display='none'">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-    <c:remove var="errorMessage" scope="session"/>
-</c:if>
 
 <!-- Appointment Booking Section -->
 <section class="bg-blue-600 py-20 text-white">
@@ -133,7 +88,6 @@
         </div>
     </div>
 </section>
-
 
 <%@ include file="./partials/footer.jsp" %>
 </body>
