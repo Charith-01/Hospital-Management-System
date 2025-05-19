@@ -78,5 +78,46 @@ public class NotificationService {
 
         return 0;
     }
+    
+    public boolean deleteNotificationById(int id) throws ClassNotFoundException {
+        String sql = "DELETE FROM notifications WHERE id = ?";
+
+        try (Connection conn = DBconnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    // Method to retrieve all notifications (for admin)
+    public List<Notification> getAllNotifications() throws ClassNotFoundException {
+        List<Notification> notifications = new ArrayList<>();
+        String sql = "SELECT id, user_email, message, created_at FROM notifications ORDER BY created_at DESC";
+
+        try (Connection conn = DBconnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Notification n = new Notification();
+                n.setId(rs.getInt("id"));
+                n.setUserEmail(rs.getString("user_email"));
+                n.setMessage(rs.getString("message"));
+                n.setCreatedAt(rs.getDate("created_at").toLocalDate());
+                notifications.add(n);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Use proper logging in production
+        }
+
+        return notifications;
+    }
+
 
 }

@@ -474,11 +474,6 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Main content would go here -->
-    <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold text-blue-800 mb-6">Hospital Management System</h1>
-        <p class="text-gray-700">Welcome to our hospital management system. Use the chatbot in the bottom right corner for assistance.</p>
-    </div>
 
     <!-- Chatbot Widget -->
     <div class="fixed bottom-6 right-6 z-50">
