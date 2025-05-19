@@ -50,30 +50,43 @@
             <div class="bg-white rounded-lg shadow overflow-hidden">
                 <div class="table-container overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-blue-600">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-16">ID</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Name</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[180px]">Email</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Phone</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Date</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[150px]">Doctor</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[200px]">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <c:forEach var="appointment" items="${appointments}">
-                                <tr class="hover:bg-blue-50 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${appointment.id}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">${appointment.patientName}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 truncate max-w-[180px]">${appointment.email}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.phoneNumber}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.appointmentDate}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.doctorName}</td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 max-w-[200px] truncate">${appointment.additionalNotes}</td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
+                      <thead class="bg-blue-600">
+					    <tr>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-16">ID</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Name</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[180px]">Email</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Phone</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[120px]">Date</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[150px]">Doctor</th>
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[200px]">Notes</th>
+					        <!-- New Notification column -->
+					        <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider min-w-[140px]">Notification</th>
+					    </tr>
+					</thead>
+					<tbody class="bg-white divide-y divide-gray-200">
+					    <c:forEach var="appointment" items="${appointments}">
+					        <tr class="hover:bg-blue-50 transition-colors">
+					            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${appointment.id}</td>
+					            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">${appointment.patientName}</td>
+					            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 truncate max-w-[180px]">${appointment.email}</td>
+					            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.phoneNumber}</td>
+					            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.appointmentDate}</td>
+					            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${appointment.doctorName}</td>
+					            <td class="px-6 py-4 text-sm text-gray-600 max-w-[200px] truncate">${appointment.additionalNotes}</td>
+					            <!-- New Notification button -->
+								<td class="px-6 py-4 whitespace-nowrap text-sm">
+								    <form action="addNotification.jsp" method="post">
+								    	<input type="hidden" name="id" value="${appointment.id}">
+								        <input type="hidden" name="email" value="${appointment.email}">
+								        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded">
+								            Notify
+								        </button>
+								    </form>
+								</td>
+					        </tr>
+					    </c:forEach>
+					</tbody>
+
                     </table>
                 </div>
             </div>

@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.suwani.model.User" %>
 <%
-    // Retrieve the user object from the session
     User user = (User) session.getAttribute("user");
     boolean isLoggedIn = user != null;
+    Integer unreadCount = (Integer) session.getAttribute("unreadCount");
+    if (unreadCount == null) {
+        unreadCount = 0;
+    }
 %>
 
 <!DOCTYPE html>
@@ -20,31 +23,42 @@
 
 <header class="bg-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-	<a href="index.jsp" class="text-2xl font-bold text-blue-600 flex items-center">
-	    <img src="assets/logo.png" alt="Suwani Hospital Logo" class="h-16 mr-3">
-	</a>
+        <a href="index.jsp" class="text-2xl font-bold text-blue-600 flex items-center">
+            <img src="assets/logo.png" alt="Suwani Hospital Logo" class="h-16 mr-3">
+        </a>
 
         <nav class="hidden md:flex space-x-6">
             <a href="index.jsp" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home mr-1"></i> Home</a>
             
-			<a href="<%= isLoggedIn ? (request.getContextPath() + "/PublicClinicServlet") : "#" %>" 
-			   class="text-gray-700 hover:text-blue-600 transition"
-			   onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
-			    <i class="fas fa-hospital me-1"></i> Clinics
-			</a>
+            <a href="<%= isLoggedIn ? (request.getContextPath() + "/PublicClinicServlet") : "#" %>" 
+               class="text-gray-700 hover:text-blue-600 transition"
+               onclick="<%= isLoggedIn ? "" : "alert('Please login to view clinics.'); window.location='" + request.getContextPath() + "/login.jsp'; return false;" %>">
+                <i class="fas fa-hospital me-1"></i> Clinics
+            </a>
 
-			<a href="<%= isLoggedIn ? "UserAppointments" : "#" %>" 
-			   class="text-gray-700 hover:text-blue-600 transition"
-			   onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
-			    <i class="fas fa-calendar-alt mr-2"></i> Appointments
-			</a>
-			      
+            <a href="<%= isLoggedIn ? "UserAppointments" : "#" %>" 
+               class="text-gray-700 hover:text-blue-600 transition"
+               onclick="<%= isLoggedIn ? "" : "alert('Please login to view appointments.'); window.location='login.jsp'; return false;" %>">
+                <i class="fas fa-calendar-alt mr-2"></i> Appointments
+            </a>
+                  
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-info-circle mr-1"></i> About Us</a>
             <a href="#" class="text-gray-700 hover:text-blue-600 transition"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
         </nav>
 
         <div class="hidden md:flex space-x-4">
             <% if (isLoggedIn) { %>
+
+                <!-- 🔔 Notification Icon with Count -->
+                <a href="UserNotificationsServlet" class="relative text-gray-700 hover:text-blue-600 transition mt-1 mr-2">
+                    <i class="fas fa-bell text-2xl"></i>
+                    <% if (unreadCount > 0) { %>
+                        <span class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-red-600 rounded-full">
+                            <%= unreadCount %>
+                        </span>
+                    <% } %>
+                </a>
+
                 <a href="userprofile.jsp" class="flex items-center text-lg font-bold text-black hover:text-blue-600 transition mr-8">
                     <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
                 </a>
@@ -86,6 +100,17 @@
         <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"><i class="fas fa-phone-alt mr-1"></i> Contact Us</a>
         
         <% if (isLoggedIn) { %>
+
+            <!-- 🔔 Mobile Notification with Count -->
+            <a href="UserNotificationsServlet" class="block py-2 text-gray-700 hover:text-blue-600 relative">
+                <i class="fas fa-bell mr-1"></i> Notifications
+                <% if (unreadCount > 0) { %>
+                    <span class="absolute top-1 right-6 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold text-white bg-red-600 rounded-full">
+                        <%= unreadCount %>
+                    </span>
+                <% } %>
+            </a>
+
             <a href="userprofile.jsp" class="block py-2 text-black font-bold hover:text-blue-600">
                 <i class="fas fa-user-circle mr-2"></i> <%= user.getFullname() %>
             </a>

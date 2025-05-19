@@ -344,5 +344,4 @@
 	<url-pattern>/publicclinicservlet</url-pattern>
 
 </servlet-mapping>
-
 </web-app> 

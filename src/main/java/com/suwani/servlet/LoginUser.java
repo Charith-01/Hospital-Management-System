@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.suwani.model.User;
 import com.suwani.service.UserService;
+import com.suwani.service.NotificationService;  // Add this import
 
 @WebServlet("/LoginUser")
 public class LoginUser extends HttpServlet {
@@ -33,9 +34,19 @@ public class LoginUser extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", userDetails);
 
-            // Store user email separately for appointment access
+            // Store user ID and email separately for appointment/notification access
+            session.setAttribute("userId", userDetails.getUserid());
             session.setAttribute("userEmail", userDetails.getEmail());
 
+            // Load unread notification count immediately and save in session
+            NotificationService notificationService = new NotificationService();
+            int unreadCount = 0;
+            try {
+                unreadCount = notificationService.getUnreadNotificationCount(userDetails.getEmail());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            session.setAttribute("unreadCount", unreadCount);
 
             if ("admin".equalsIgnoreCase(userDetails.getRole())) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("adminDashboard.jsp");
