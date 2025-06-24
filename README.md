@@ -2,6 +2,8 @@
 
 A comprehensive web-based **Hospital Management System** designed and developed to streamline the operations of a healthcare facility. The system supports **role-based access** and provides essential functionalities for administrators, doctors, and patients.
 
+![Image Alt](image_url)
+
 ## 🚀 Features
 
 ### 🔐 Authentication & Authorization
