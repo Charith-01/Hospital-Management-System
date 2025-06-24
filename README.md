@@ -2,7 +2,7 @@
 
 A comprehensive web-based **Hospital Management System** designed and developed to streamline the operations of a healthcare facility. The system supports **role-based access** and provides essential functionalities for administrators, doctors, and patients.
 
-![Image Alt](image_url)
+![Image Alt](https://github.com/Charith-01/Hospital-Management-System/blob/c1d726aa5bf55588fdc512119af2786d2007e32a/Screenshot%202025-06-24%20104855.png)
 
 ## 🚀 Features
 
